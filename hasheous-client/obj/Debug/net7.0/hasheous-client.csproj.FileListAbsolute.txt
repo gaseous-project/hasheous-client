@@ -22,3 +22,4 @@
 /Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/refint/hasheous-client.dll
 /Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/hasheous-client.pdb
 /Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/ref/hasheous-client.dll
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/hasheous-client.sourcelink.json

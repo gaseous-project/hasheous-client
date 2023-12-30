@@ -2,8 +2,8 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
-using System.Net.Http.Json;
 using Newtonsoft.Json;
 
 namespace HasheousClient.WebApp
@@ -30,9 +30,10 @@ namespace HasheousClient.WebApp
 
         public static async Task<T> Post<T>(string url, object contentValue)
         {
-            var jsonContent = JsonContent.Create(contentValue);
-            await jsonContent.LoadIntoBufferAsync();
-            var response = await client.PostAsync(url, jsonContent);
+            //var jsonContent = JsonContent.Create(contentValue);
+            var stringContent = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentValue), Encoding.UTF8, "application/json");
+            await stringContent.LoadIntoBufferAsync();
+            var response = await client.PostAsync(url, stringContent);
             response.EnsureSuccessStatusCode();
 
             // Deserialize the updated product from the response body.

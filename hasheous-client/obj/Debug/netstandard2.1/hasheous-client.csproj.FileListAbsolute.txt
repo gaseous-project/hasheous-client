@@ -1,0 +1,11 @@
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/netstandard2.1/hasheous-client.csproj.AssemblyReference.cache
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/netstandard2.1/hasheous-client.GeneratedMSBuildEditorConfig.editorconfig
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/netstandard2.1/hasheous-client.AssemblyInfoInputs.cache
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/netstandard2.1/hasheous-client.AssemblyInfo.cs
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/netstandard2.1/hasheous-client.csproj.CoreCompileInputs.cache
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/netstandard2.1/hasheous-client.sourcelink.json
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/bin/Debug/netstandard2.1/hasheous-client.deps.json
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/bin/Debug/netstandard2.1/hasheous-client.dll
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/bin/Debug/netstandard2.1/hasheous-client.pdb
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/netstandard2.1/hasheous-client.dll
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/netstandard2.1/hasheous-client.pdb
