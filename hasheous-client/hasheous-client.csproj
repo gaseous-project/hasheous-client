@@ -5,6 +5,28 @@
     <RootNamespace>hasheous_client</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <!-- nuget spec -->
+    <NuspecProperties>version=$(PackageVersion)</NuspecProperties>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <PackageId>hasheous-client</PackageId>
+    <Description>Simple client to access Hasheous servers</Description>
+    <Authors>Gaseous Games</Authors>
+    <Copyright>Copyright 2023 Gaseous Games</Copyright>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/gaseous-project/hasheous-client</PackageProjectUrl>
+    <RepositoryBranch>main</RepositoryBranch>
+    <RepositoryUrl>https://github.com/gaseous-project/hasheous-client</RepositoryUrl>
+    <PackageTags>igdb dotnet games retro management manager rom emulation</PackageTags>
+    <PackageIconUrl>https://avatars.githubusercontent.com/u/125975681</PackageIconUrl>
+    <PackageReleaseNotes>See https://github.com/gaseous-project/hasheous-client/releases</PackageReleaseNotes>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <ItemGroup>

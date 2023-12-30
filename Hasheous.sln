@@ -1,9 +1,11 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1704.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hasheous-client", "hasheous-client\hasheous-client.csproj", "{A01D2EFF-C82E-473B-84D7-7C25E736F5D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{359B55A4-31F7-4FED-B187-FCE1FB056588}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{25546700-AF4B-4100-8F24-1A1BFAC39961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25546700-AF4B-4100-8F24-1A1BFAC39961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25546700-AF4B-4100-8F24-1A1BFAC39961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{359B55A4-31F7-4FED-B187-FCE1FB056588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{359B55A4-31F7-4FED-B187-FCE1FB056588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{359B55A4-31F7-4FED-B187-FCE1FB056588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{359B55A4-31F7-4FED-B187-FCE1FB056588}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

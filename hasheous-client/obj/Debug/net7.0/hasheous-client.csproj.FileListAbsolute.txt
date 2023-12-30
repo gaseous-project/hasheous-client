@@ -10,3 +10,15 @@
 /Users/michaelgreen/Development/gaseous-server/hasheous-client/obj/Debug/net7.0/refint/hasheous-client.dll
 /Users/michaelgreen/Development/gaseous-server/hasheous-client/obj/Debug/net7.0/hasheous-client.pdb
 /Users/michaelgreen/Development/gaseous-server/hasheous-client/obj/Debug/net7.0/ref/hasheous-client.dll
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/bin/Debug/net7.0/hasheous-client.deps.json
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/bin/Debug/net7.0/hasheous-client.dll
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/bin/Debug/net7.0/hasheous-client.pdb
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/hasheous-client.csproj.AssemblyReference.cache
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/hasheous-client.GeneratedMSBuildEditorConfig.editorconfig
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/hasheous-client.AssemblyInfoInputs.cache
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/hasheous-client.AssemblyInfo.cs
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/hasheous-client.csproj.CoreCompileInputs.cache
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/hasheous-client.dll
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/refint/hasheous-client.dll
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/hasheous-client.pdb
+/Users/michaelgreen/Development/hasheous-client/hasheous-client/obj/Debug/net7.0/ref/hasheous-client.dll
