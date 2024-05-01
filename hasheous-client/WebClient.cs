@@ -14,7 +14,7 @@ namespace HasheousClient.WebApp
         {
             get
             {
-                return apiBasicUri;
+                return client.BaseAddress.ToString();
             }
             set
             {
@@ -24,7 +24,10 @@ namespace HasheousClient.WebApp
             } 
         }
 
-        private static string apiBasicUri { get; set; }
+        public static void AddHeader(string name, string value)
+        {
+            client.DefaultRequestHeaders.Add(name, value);
+        }
 
         private static HttpClient client = new HttpClient();
 
@@ -50,15 +53,16 @@ namespace HasheousClient.WebApp
         //     result.EnsureSuccessStatusCode();
         // }
 
-        // public static async Task<T> Get<T>(string url)
-        // {
-        //     Client.BaseAddress = new Uri(apiBasicUri);
-        //     var result = await Client.GetAsync(url);
-        //     result.EnsureSuccessStatusCode();
-        //     string resultContentString = await result.Content.ReadAsStringAsync();
-        //     T resultContent = JsonConvert.DeserializeObject<T>(resultContentString);
-        //     return resultContent;
-        // }
+        public static async Task<T> Get<T>(string url)
+        {
+            var response = await client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+
+            // Deserialise the response
+            string resultStr = await response.Content.ReadAsStringAsync();
+            T resultObject = JsonConvert.DeserializeObject<T>(resultStr);
+            return resultObject;
+        }
 
         // public static async Task Delete(string url)
         // {
