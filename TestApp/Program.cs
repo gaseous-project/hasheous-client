@@ -5,12 +5,17 @@ HasheousClient.WebApp.HttpHelper.BaseUri = "https://hasheous.org/";
 
 HasheousClient.Hasheous hasheous = new HasheousClient.Hasheous();
 
-SignatureLookupItem? HasheousResult = hasheous.RetrieveFromHasheousAsync(new HashLookupModel{
-    MD5 = "93bb1e1ee14ac53adb9e6b9e0c135043"
+LookupItemModel? HasheousResult = hasheous.RetrieveFromHasheous(new HashLookupModel{
+    MD5 = "7a61d6a9bd7ac1a3249ef167ae136af7"
 });
 
 if (HasheousResult != null)
 {
-    string outString = Newtonsoft.Json.JsonConvert.SerializeObject(HasheousResult, Newtonsoft.Json.Formatting.Indented);
+    Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings{
+        Formatting = Newtonsoft.Json.Formatting.Indented,
+        NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore
+    };
+    jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+    string outString = Newtonsoft.Json.JsonConvert.SerializeObject(HasheousResult, jsonSerializerSettings);
     Console.WriteLine(outString);
 }
