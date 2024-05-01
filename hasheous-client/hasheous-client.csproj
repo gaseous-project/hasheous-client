@@ -15,7 +15,7 @@
     <Description>Simple client to access Hasheous servers</Description>
     <Authors>Gaseous Games</Authors>
     <Copyright>Copyright 2023 Gaseous Games</Copyright>
-    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/gaseous-project/hasheous-client</PackageProjectUrl>
     <RepositoryBranch>main</RepositoryBranch>
     <RepositoryUrl>https://github.com/gaseous-project/hasheous-client</RepositoryUrl>
