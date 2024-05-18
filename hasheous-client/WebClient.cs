@@ -10,7 +10,7 @@ namespace HasheousClient.WebApp
 {
     public static class HttpHelper
     {
-        public static string BaseUri 
+        public static string BaseUri
         {
             get
             {
@@ -21,11 +21,15 @@ namespace HasheousClient.WebApp
                 client.BaseAddress = new Uri(value);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            } 
+            }
         }
 
         public static void AddHeader(string name, string value)
         {
+            if (client.DefaultRequestHeaders.Contains(name))
+            {
+                client.DefaultRequestHeaders.Remove(name);
+            }
             client.DefaultRequestHeaders.Add(name, value);
         }
 
