@@ -3,17 +3,17 @@ using Newtonsoft.Json;
 
 namespace HasheousClient.Models
 {
-	public class SignatureModel
-	{
-		public SignatureModel()
-		{
-		}
+    public class SignatureModel
+    {
+        public SignatureModel()
+        {
+        }
 
         public GameItem? Game { get; set; }
         public RomItem? Rom { get; set; }
 
-		public class GameItem
-		{
+        public class GameItem
+        {
             public long? Id { get; set; }
             public string? Name { get; set; }
             public string? Description { get; set; }
@@ -27,7 +27,7 @@ namespace HasheousClient.Models
             public Dictionary<string, string>? Countries { get; set; }
             public Dictionary<string, string>? Languages { get; set; }
             public string? Copyright { get; set; }
-            
+
             public enum DemoTypes
             {
                 NotDemo = 0,
@@ -81,7 +81,85 @@ namespace HasheousClient.Models
 
             public class MediaType
             {
-                public RomItem.RomTypes? Media { get; set; }
+                public MediaType(SignatureSourceType Source, string MediaTypeString)
+                {
+                    switch (Source)
+                    {
+                        case SignatureSourceType.TOSEC:
+                        case SignatureSourceType.NoIntros:
+                            string[] typeString = MediaTypeString.Split(" ");
+
+                            string inType = "";
+                            foreach (string typeStringVal in typeString)
+                            {
+                                if (inType == "")
+                                {
+                                    switch (typeStringVal.ToLower())
+                                    {
+                                        case "disk":
+                                            Media = RomTypes.Disk;
+
+                                            inType = typeStringVal;
+                                            break;
+                                        case "disc":
+                                            Media = RomTypes.Disc;
+
+                                            inType = typeStringVal;
+                                            break;
+                                        case "file":
+                                            Media = RomTypes.File;
+
+                                            inType = typeStringVal;
+                                            break;
+                                        case "part":
+                                            Media = RomTypes.Part;
+
+                                            inType = typeStringVal;
+                                            break;
+                                        case "tape":
+                                            Media = RomTypes.Tape;
+
+                                            inType = typeStringVal;
+                                            break;
+                                        case "of":
+                                            inType = typeStringVal;
+                                            break;
+                                        case "side":
+                                            inType = typeStringVal;
+                                            break;
+                                    }
+                                }
+                                else
+                                {
+                                    switch (inType.ToLower())
+                                    {
+                                        case "disk":
+                                        case "disc":
+                                        case "file":
+                                        case "part":
+                                        case "tape":
+                                            Number = int.Parse(typeStringVal);
+                                            break;
+                                        case "of":
+                                            Count = int.Parse(typeStringVal);
+                                            break;
+                                        case "side":
+                                            Side = typeStringVal;
+                                            break;
+                                    }
+                                    inType = "";
+                                }
+                            }
+
+                            break;
+
+                        default:
+                            break;
+
+                    }
+                }
+
+                public RomTypes? Media { get; set; }
 
                 public int? Number { get; set; }
 
