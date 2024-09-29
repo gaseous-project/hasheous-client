@@ -62,9 +62,16 @@ namespace HasheousClient.WebApp
             var response = await client.GetAsync(url);
             response.EnsureSuccessStatusCode();
 
-            // Deserialise the response
+            // Get the response
             string resultStr = await response.Content.ReadAsStringAsync();
-            T resultObject = JsonConvert.DeserializeObject<T>(resultStr);
+
+            // Deserialize the response to T
+            T resultObject = JsonConvert.DeserializeObject<T>(resultStr, new JsonSerializerSettings
+            {
+                MaxDepth = 8,
+                ObjectCreationHandling = ObjectCreationHandling.Auto,
+                CheckAdditionalContent = true
+            });
             return resultObject;
         }
 

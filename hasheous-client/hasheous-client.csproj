@@ -4,7 +4,7 @@
     <RootNamespace>hasheous_client</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    
+
     <!-- nuget spec -->
     <NuspecProperties>version=$(PackageVersion)</NuspecProperties>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -35,10 +35,9 @@
   <ItemGroup>
     <PackageReference Include="gaseous-signature-parser" Version="2.2.1" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="gaseous.IGDB" Version="1.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
 
 </Project>
