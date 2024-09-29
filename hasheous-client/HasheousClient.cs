@@ -65,5 +65,70 @@ namespace HasheousClient
                 return result.Objects;
             }
         }
+
+        public T GetMetadataProxy<T>(MetadataProvider metadataProvider, int id)
+        {
+            Task<T> result = _GetMetadataProxy<T>(metadataProvider, id);
+
+            return result.Result;
+        }
+
+        private async Task<T> _GetMetadataProxy<T>(MetadataProvider metadataProvider, int id)
+        {
+            string TypeName = typeof(T).Name;
+
+            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/{TypeName}?id={id}");
+
+            return result;
+        }
+
+        public T? GetMetadataProxy_SearchPlatform<T>(MetadataProvider metadataProvider, string search)
+        {
+            string TypeName = typeof(T).Name.Replace("[]", "");
+
+            if (TypeName == "Platform" && metadataProvider == MetadataProvider.IGDB)
+            {
+                Task<T> result = _GetMetadataProxy_SearchPlatform<T>(metadataProvider, search);
+
+                return result.Result;
+            }
+
+            return default;
+        }
+
+        private async Task<T> _GetMetadataProxy_SearchPlatform<T>(MetadataProvider metadataProvider, string search)
+        {
+            string TypeName = typeof(T).Name.Replace("[]", "");
+
+            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/Search/{TypeName}?SearchString={search}");
+
+            return result;
+        }
+
+        public T? GetMetadataProxy_SearchGame<T>(MetadataProvider metadataProvider, string platformId, string search)
+        {
+            string TypeName = typeof(T).Name.Replace("[]", "");
+
+            if (TypeName == "Game" && metadataProvider == MetadataProvider.IGDB)
+            {
+                Task<T> result = _GetMetadataProxy_SearchGame<T>(metadataProvider, platformId, search);
+
+                return result.Result;
+            }
+
+            return default;
+        }
+
+        private async Task<T> _GetMetadataProxy_SearchGame<T>(MetadataProvider metadataProvider, string platformId, string search)
+        {
+            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/Search/Platform/{platformId}/Game?SearchString={search}");
+
+            return result;
+        }
+
+        public enum MetadataProvider
+        {
+            IGDB
+        }
     }
 }
