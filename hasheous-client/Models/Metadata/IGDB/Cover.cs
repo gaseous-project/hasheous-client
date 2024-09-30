@@ -23,8 +23,8 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("game")]
     public object Game { get; set; }
 
-    [JsonPropertyName("height")]
-    [JsonProperty("height")]
+    [JsonPropertyName("game_localization")]
+    [JsonProperty("game_localization")]
     public object GameLocalization { get; set; }
 
     [JsonPropertyName("id")]
