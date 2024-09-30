@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace HasheousClient.Models.Metadata.IGDB
 {
-  public class CompanyLogo : IIdentifier, IHasChecksum
+  public class CompanyLogo : ITools, IIdentifier, IHasChecksum
   {
     [JsonPropertyName("alpha_channel")]
     [JsonProperty("alpha_channel")]

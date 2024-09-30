@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace HasheousClient.Models.Metadata.IGDB
 {
-  public class AgeRatingContentDescription : IIdentifier, IHasChecksum
+  public class AgeRatingContentDescription : ITools, IIdentifier, IHasChecksum
   {
     [JsonPropertyName("category")]
     [JsonProperty("category")]

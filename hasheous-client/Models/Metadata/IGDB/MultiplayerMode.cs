@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace HasheousClient.Models.Metadata.IGDB
 {
-  public class MultiplayerMode : IIdentifier, IHasChecksum
+  public class MultiplayerMode : ITools, IIdentifier, IHasChecksum
   {
     [JsonPropertyName("campaigncoop")]
     [JsonProperty("campaigncoop")]

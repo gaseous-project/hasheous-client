@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace HasheousClient.Models.Metadata.IGDB
 {
-  public class Website : IIdentifier, IHasChecksum
+  public class Website : ITools, IIdentifier, IHasChecksum
   {
     [JsonPropertyName("category")]
     [JsonProperty("category")]
