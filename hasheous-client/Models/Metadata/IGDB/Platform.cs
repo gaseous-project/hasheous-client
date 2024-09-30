@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace HasheousClient.Models.Metadata.IGDB
 {
-  public class Platform : ITimestamps, IIdentifier, IHasChecksum
+  public class Platform : ITools, ITimestamps, IIdentifier, IHasChecksum
   {
     [JsonPropertyName("abbreviation")]
     [JsonProperty("abbreviation")]
