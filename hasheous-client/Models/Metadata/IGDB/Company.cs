@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace HasheousClient.Models.Metadata.IGDB
 {
-  public class Company : ITimestamps, IIdentifier, IHasChecksum
+  public class Company : ITools, ITimestamps, IIdentifier, IHasChecksum
   {
     [JsonPropertyName("change_date")]
     [JsonProperty("change_date")]
