@@ -82,6 +82,22 @@ namespace HasheousClient
             return result;
         }
 
+        public T GetMetadataProxy<T>(MetadataProvider metadataProvider, string slug)
+        {
+            Task<T> result = _GetMetadataProxy<T>(metadataProvider, slug);
+
+            return result.Result;
+        }
+
+        private async Task<T> _GetMetadataProxy<T>(MetadataProvider metadataProvider, string slug)
+        {
+            string TypeName = typeof(T).Name;
+
+            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/{TypeName}?slug={slug}");
+
+            return result;
+        }
+
         public T? GetMetadataProxy_SearchPlatform<T>(MetadataProvider metadataProvider, string search)
         {
             string TypeName = typeof(T).Name.Replace("[]", "");
