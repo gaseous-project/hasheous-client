@@ -33,6 +33,18 @@ namespace HasheousClient.WebApp
             client.DefaultRequestHeaders.Add(name, value);
         }
 
+        public static string APIKey
+        {
+            get
+            {
+                return client.DefaultRequestHeaders.GetValues("APIKey").FirstOrDefault();
+            }
+            set
+            {
+                AddHeader("APIKey", value);
+            }
+        }
+
         private static HttpClient client = new HttpClient();
 
         public static async Task<T> Post<T>(string url, object contentValue)
