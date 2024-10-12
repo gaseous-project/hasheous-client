@@ -19,36 +19,61 @@ namespace HasheousClient.WebApp
             set
             {
                 client.BaseAddress = new Uri(value);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                BuildHeaders();
             }
         }
 
-        public static void AddHeader(string name, string value)
+        private static void BuildHeaders()
         {
-            if (client.DefaultRequestHeaders.Contains(name))
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            // add client supplied headers
+            if (Headers != null)
             {
-                client.DefaultRequestHeaders.Remove(name);
+                foreach (KeyValuePair<string, string> header in Headers)
+                {
+                    if (client.DefaultRequestHeaders.Contains(header.Key))
+                    {
+                        client.DefaultRequestHeaders.Remove(header.Key);
+                    }
+                    client.DefaultRequestHeaders.Add(header.Key, header.Value);
+                }
             }
-            client.DefaultRequestHeaders.Add(name, value);
+
+            // remove keys if they exist
+            if (client.DefaultRequestHeaders.Contains("X-API-Key"))
+            {
+                client.DefaultRequestHeaders.Remove("X-API-Key");
+            }
+            if (client.DefaultRequestHeaders.Contains("X-Client-API-Key"))
+            {
+                client.DefaultRequestHeaders.Remove("X-Client-API-Key");
+            }
+
+            // add keys if they exist
+            if (!string.IsNullOrEmpty(APIKey))
+            {
+                client.DefaultRequestHeaders.Add("X-API-Key", APIKey);
+            }
+            if (!string.IsNullOrEmpty(ClientKey))
+            {
+                client.DefaultRequestHeaders.Add("X-Client-API-Key", ClientKey);
+            }
         }
 
-        public static string APIKey
-        {
-            get
-            {
-                return client.DefaultRequestHeaders.GetValues("APIKey").FirstOrDefault();
-            }
-            set
-            {
-                AddHeader("APIKey", value);
-            }
-        }
+        public static string APIKey = "";
+        public static string ClientKey = "";
+        public static Dictionary<string, string> Headers = new Dictionary<string, string>();
 
         private static HttpClient client = new HttpClient();
 
         public static async Task<T> Post<T>(string url, object contentValue)
         {
+            // ensure headers are built
+            BuildHeaders();
+
             //var jsonContent = JsonContent.Create(contentValue);
             var stringContent = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentValue), Encoding.UTF8, "application/json");
             await stringContent.LoadIntoBufferAsync();
@@ -71,6 +96,9 @@ namespace HasheousClient.WebApp
 
         public static async Task<T> Get<T>(string url)
         {
+            // ensure headers are built
+            BuildHeaders();
+
             var response = await client.GetAsync(url);
             response.EnsureSuccessStatusCode();
 
