@@ -3,9 +3,11 @@ using HasheousClient.Models;
 
 HasheousClient.WebApp.HttpHelper.BaseUri = "https://hasheous.org/";
 HasheousClient.WebApp.HttpHelper.APIKey = "";
+HasheousClient.WebApp.HttpHelper.ClientKey = "";
 
 HasheousClient.Hasheous hasheous = new HasheousClient.Hasheous();
 
+Console.WriteLine("Fetching data from Hasheous...");
 LookupItemModel? HasheousResult = hasheous.RetrieveFromHasheous(new HashLookupModel
 {
     MD5 = "7a61d6a9bd7ac1a3249ef167ae136af7"
@@ -23,12 +25,14 @@ if (HasheousResult != null)
     Console.WriteLine(outString);
 }
 
+Console.WriteLine("Fetching platforms from Hasheous...");
 List<DataObjectItem> platforms = hasheous.GetPlatforms();
 for (int i = 0; i < platforms.Count; i++)
 {
     Console.WriteLine(i + ": " + platforms[i].Name);
 }
 
+Console.WriteLine("Fetching metadata via metadata proxy from Hasheous...");
 HasheousClient.Models.Metadata.IGDB.Game metadataProxy = hasheous.GetMetadataProxy<HasheousClient.Models.Metadata.IGDB.Game>(HasheousClient.Hasheous.MetadataProvider.IGDB, 3192);
 if (metadataProxy != null)
 {
