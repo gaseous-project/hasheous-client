@@ -66,14 +66,14 @@ namespace HasheousClient
             }
         }
 
-        public T GetMetadataProxy<T>(MetadataProvider metadataProvider, int id)
+        public T GetMetadataProxy<T>(MetadataProvider metadataProvider, long id)
         {
             Task<T> result = _GetMetadataProxy<T>(metadataProvider, id);
 
             return result.Result;
         }
 
-        private async Task<T> _GetMetadataProxy<T>(MetadataProvider metadataProvider, int id)
+        private async Task<T> _GetMetadataProxy<T>(MetadataProvider metadataProvider, long id)
         {
             string TypeName = typeof(T).Name;
 
