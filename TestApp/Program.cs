@@ -3,7 +3,7 @@ using HasheousClient.Models;
 
 HasheousClient.WebApp.HttpHelper.BaseUri = "https://hasheous.org/";
 HasheousClient.WebApp.HttpHelper.APIKey = "";
-HasheousClient.WebApp.HttpHelper.ClientKey = "";
+HasheousClient.WebApp.HttpHelper.ClientKey = "rMnTbIjaCYtfDfCMX3Mes55rgBdrbUMfP2jgW_Nz2nYQdQ8EgHVZR0zfyvbd957x";
 
 HasheousClient.Hasheous hasheous = new HasheousClient.Hasheous();
 
@@ -33,7 +33,21 @@ for (int i = 0; i < platforms.Count; i++)
 }
 
 Console.WriteLine("Fetching metadata via metadata proxy from Hasheous...");
-HasheousClient.Models.Metadata.IGDB.Game metadataProxy = hasheous.GetMetadataProxy<HasheousClient.Models.Metadata.IGDB.Game>(HasheousClient.Hasheous.MetadataProvider.IGDB, 3192);
+// HasheousClient.Models.Metadata.IGDB.Game metadataProxy = hasheous.GetMetadataProxy<HasheousClient.Models.Metadata.IGDB.Game>(HasheousClient.Hasheous.MetadataProvider.IGDB, 3192);
+// if (metadataProxy != null)
+// {
+//     Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
+//     {
+//         Formatting = Newtonsoft.Json.Formatting.Indented,
+//         NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
+//         MaxDepth = 8
+//     };
+//     jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+//     string outString = Newtonsoft.Json.JsonConvert.SerializeObject(metadataProxy, jsonSerializerSettings);
+//     Console.WriteLine(outString);
+// }
+
+Dictionary<string, object> metadataProxy = hasheous.GetMetadataProxy<Dictionary<string, object>>("Game", HasheousClient.Hasheous.MetadataProvider.IGDB, 3192);
 if (metadataProxy != null)
 {
     Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
