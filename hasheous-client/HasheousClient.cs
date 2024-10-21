@@ -217,13 +217,13 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T? GetMetadataProxy_SearchPlatform<T>(MetadataProvider metadataProvider, string search)
+        public T[]? GetMetadataProxy_SearchPlatform<T>(MetadataProvider metadataProvider, string search)
         {
             string TypeName = typeof(T).Name.Replace("[]", "");
 
             if (metadataProvider == MetadataProvider.IGDB)
             {
-                Task<T> result = _GetMetadataProxy_SearchPlatform<T>(TypeName, metadataProvider, search);
+                Task<T[]> result = _GetMetadataProxy_SearchPlatform<T>(TypeName, metadataProvider, search);
 
                 return result.Result;
             }
@@ -249,11 +249,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T? GetMetadataProxy_SearchPlatform<T>(string TypeName, MetadataProvider metadataProvider, string search)
+        public T[]? GetMetadataProxy_SearchPlatform<T>(string TypeName, MetadataProvider metadataProvider, string search)
         {
             if (metadataProvider == MetadataProvider.IGDB)
             {
-                Task<T> result = _GetMetadataProxy_SearchPlatform<T>(TypeName, metadataProvider, search);
+                Task<T[]> result = _GetMetadataProxy_SearchPlatform<T>(TypeName, metadataProvider, search);
 
                 return result.Result;
             }
@@ -261,11 +261,11 @@ namespace HasheousClient
             return default;
         }
 
-        private async Task<T> _GetMetadataProxy_SearchPlatform<T>(string TypeName, MetadataProvider metadataProvider, string search)
+        private async Task<T[]> _GetMetadataProxy_SearchPlatform<T>(string TypeName, MetadataProvider metadataProvider, string search)
         {
             if (TypeName == "Platform")
             {
-                var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/Search/{TypeName}?SearchString={search}");
+                var result = await HasheousClient.WebApp.HttpHelper.Get<T[]>($"/api/v1/MetadataProxy/{metadataProvider}/Search/{TypeName}?SearchString={search}");
 
                 return result;
             }
@@ -293,13 +293,13 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T? GetMetadataProxy_SearchGame<T>(MetadataProvider metadataProvider, string platformId, string search)
+        public T[]? GetMetadataProxy_SearchGame<T>(MetadataProvider metadataProvider, string platformId, string search)
         {
             string TypeName = typeof(T).Name.Replace("[]", "");
 
             if (metadataProvider == MetadataProvider.IGDB)
             {
-                Task<T> result = _GetMetadataProxy_SearchGame<T>(TypeName, metadataProvider, platformId, search);
+                Task<T[]> result = _GetMetadataProxy_SearchGame<T>(TypeName, metadataProvider, platformId, search);
 
                 return result.Result;
             }
@@ -328,11 +328,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T? GetMetadataProxy_SearchGame<T>(string TypeName, MetadataProvider metadataProvider, string platformId, string search)
+        public T[]? GetMetadataProxy_SearchGame<T>(string TypeName, MetadataProvider metadataProvider, string platformId, string search)
         {
             if (metadataProvider == MetadataProvider.IGDB)
             {
-                Task<T> result = _GetMetadataProxy_SearchGame<T>(TypeName, metadataProvider, platformId, search);
+                Task<T[]> result = _GetMetadataProxy_SearchGame<T>(TypeName, metadataProvider, platformId, search);
 
                 return result.Result;
             }
@@ -340,9 +340,9 @@ namespace HasheousClient
             return default;
         }
 
-        private async Task<T> _GetMetadataProxy_SearchGame<T>(string TypeName, MetadataProvider metadataProvider, string platformId, string search)
+        private async Task<T[]> _GetMetadataProxy_SearchGame<T>(string TypeName, MetadataProvider metadataProvider, string platformId, string search)
         {
-            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/Search/Platform/{platformId}/{TypeName}?SearchString={search}");
+            var result = await HasheousClient.WebApp.HttpHelper.Get<T[]>($"/api/v1/MetadataProxy/{metadataProvider}/Search/Platform/{platformId}/{TypeName}?SearchString={search}");
 
             return result;
         }
