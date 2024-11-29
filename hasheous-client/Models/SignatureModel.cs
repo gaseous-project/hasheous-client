@@ -76,7 +76,8 @@ namespace HasheousClient.Models
                 TOSEC = 1,
                 MAMEArcade = 2,
                 MAMEMess = 3,
-                NoIntros = 4
+                NoIntros = 4,
+                Redump = 5
             }
 
             public class MediaType
@@ -87,6 +88,7 @@ namespace HasheousClient.Models
                     {
                         case SignatureSourceType.TOSEC:
                         case SignatureSourceType.NoIntros:
+                        case SignatureSourceType.Redump:
                             string[] typeString = MediaTypeString.Split(" ");
 
                             string inType = "";
