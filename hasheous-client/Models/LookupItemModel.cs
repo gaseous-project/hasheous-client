@@ -70,9 +70,14 @@ namespace HasheousClient.Models
         /// <summary>
         /// IGDB - queries the IGDB service for metadata
         /// </summary>
-        IGDB
+        IGDB,
+
+        /// <summary>
+        /// TheGamesDb - queries TheGamesDb service for metadata
+        /// </summary>
+        TheGamesDb
     }
-    
+
     /// <summary>
     /// The method used to match the signature to the IGDB source
     /// </summary>
