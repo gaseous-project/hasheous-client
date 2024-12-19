@@ -11,6 +11,11 @@ namespace HasheousClient.Models
         public string Id { get; set; }
 
         /// <summary>
+        /// The immutable id to map to from the metadata source
+        /// </summary>
+        public string? ImmutableId { get; set; }
+
+        /// <summary>
         /// The method used to match to the metadata source
         /// </summary>
         public MatchMethod? MatchMethod { get; set; }
