@@ -41,11 +41,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("platform_family")]
     [JsonProperty("platform_family")]
-    public object PlatformFamily { get; set; }
+    public long PlatformFamily { get; set; }
 
     [JsonPropertyName("platform_logo")]
     [JsonProperty("platform_logo")]
-    public object PlatformLogo { get; set; }
+    public long PlatformLogo { get; set; }
 
     [JsonPropertyName("slug")]
     [JsonProperty("slug")]
@@ -65,11 +65,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("versions")]
     [JsonProperty("versions")]
-    public List<object> Versions { get; set; }
+    public List<long> Versions { get; set; }
 
     [JsonPropertyName("websites")]
     [JsonProperty("websites")]
-    public List<object> Websites { get; set; }
+    public List<long> Websites { get; set; }
   }
 
   public enum PlatformCategory

@@ -17,7 +17,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("changed_company_id")]
     [JsonProperty("changed_company_id")]
-    public object ChangedCompanyId { get; set; }
+    public long ChangedCompanyId { get; set; }
 
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]
@@ -41,7 +41,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("developed")]
     [JsonProperty("developed")]
-    public List<object> Developed { get; set; }
+    public List<long> Developed { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]
@@ -49,7 +49,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("logo")]
     [JsonProperty("logo")]
-    public object Logo { get; set; }
+    public long Logo { get; set; }
 
     [JsonPropertyName("name")]
     [JsonProperty("name")]
@@ -57,11 +57,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("parent")]
     [JsonProperty("parent")]
-    public object Parent { get; set; }
+    public long Parent { get; set; }
 
     [JsonPropertyName("published")]
     [JsonProperty("published")]
-    public List<object> Published { get; set; }
+    public List<long> Published { get; set; }
 
     [JsonPropertyName("slug")]
     [JsonProperty("slug")]
@@ -85,7 +85,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("websites")]
     [JsonProperty("websites")]
-    public List<object> Websites { get; set; }
+    public List<long> Websites { get; set; }
 
   }
 

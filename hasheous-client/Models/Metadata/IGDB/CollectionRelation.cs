@@ -14,7 +14,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("child_collection")]
     [JsonProperty("child_collection")]
-    public object ChildCollection { get; set; }
+    public long ChildCollection { get; set; }
 
     [JsonPropertyName("created_at")]
     [JsonProperty("created_at")]
@@ -26,11 +26,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("parent_collection")]
     [JsonProperty("parent_collection")]
-    public object ParentCollection { get; set; }
+    public long ParentCollection { get; set; }
 
     [JsonPropertyName("type")]
     [JsonProperty("type")]
-    public object Type { get; set; }
+    public long Type { get; set; }
 
     [JsonPropertyName("updated_at")]
     [JsonProperty("updated_at")]

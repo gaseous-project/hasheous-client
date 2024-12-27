@@ -13,7 +13,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("companies")]
     [JsonProperty("companies")]
-    public List<object> Companies { get; set; }
+    public List<long> Companies { get; set; }
 
     [JsonPropertyName("connectivity")]
     [JsonProperty("connectivity")]
@@ -33,7 +33,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("main_manufacturer")]
     [JsonProperty("main_manufacturer")]
-    public object MainManufacturer { get; set; }
+    public long MainManufacturer { get; set; }
 
     [JsonPropertyName("media")]
     [JsonProperty("media")]
@@ -57,11 +57,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("platform_logo")]
     [JsonProperty("platform_logo")]
-    public object PlatformLogo { get; set; }
+    public long PlatformLogo { get; set; }
 
     [JsonPropertyName("platform_version_release_dates")]
     [JsonProperty("platform_version_release_dates")]
-    public List<object> PlatformVersionReleaseDates { get; set; }
+    public List<long> PlatformVersionReleaseDates { get; set; }
 
     [JsonPropertyName("resolutions")]
     [JsonProperty("resolutions")]

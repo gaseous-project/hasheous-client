@@ -25,7 +25,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("event")]
     [JsonProperty("event")]
-    public object Event { get; set; }
+    public long Event { get; set; }
 
     [JsonPropertyName("height")]
     [JsonProperty("height")]

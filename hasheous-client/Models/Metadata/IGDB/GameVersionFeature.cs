@@ -31,7 +31,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("values")]
     [JsonProperty("values")]
-    public List<object> Values { get; set; }
+    public List<long> Values { get; set; }
   }
 
   public enum GameVersionFeatureCategory

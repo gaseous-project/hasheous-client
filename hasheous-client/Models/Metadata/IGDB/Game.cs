@@ -10,7 +10,7 @@ namespace HasheousClient.Models.Metadata.IGDB
   {
     [JsonPropertyName("age_ratings")]
     [JsonProperty("age_ratings")]
-    public List<object> AgeRatings { get; set; }
+    public List<long> AgeRatings { get; set; }
 
     [JsonPropertyName("aggregated_rating")]
     [JsonProperty("aggregated_rating")]
@@ -22,15 +22,15 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("alternative_names")]
     [JsonProperty("alternative_names")]
-    public List<object> AlternativeNames { get; set; }
+    public List<long> AlternativeNames { get; set; }
 
     [JsonPropertyName("artworks")]
     [JsonProperty("artworks")]
-    public List<object> Artworks { get; set; }
+    public List<long> Artworks { get; set; }
 
     [JsonPropertyName("bundles")]
     [JsonProperty("bundles")]
-    public List<object> Bundles { get; set; }
+    public List<long> Bundles { get; set; }
 
     [JsonPropertyName("category")]
     [JsonProperty("category")]
@@ -42,11 +42,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("collections")]
     [JsonProperty("collections")]
-    public List<object> Collections { get; set; }
+    public List<long> Collections { get; set; }
 
     [JsonPropertyName("cover")]
     [JsonProperty("cover")]
-    public object Cover { get; set; }
+    public long Cover { get; set; }
 
     [JsonPropertyName("created_at")]
     [JsonProperty("created_at")]
@@ -54,19 +54,19 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("dlcs")]
     [JsonProperty("dlcs")]
-    public List<object> Dlcs { get; set; }
+    public List<long> Dlcs { get; set; }
 
     [JsonPropertyName("expanded_games")]
     [JsonProperty("expanded_games")]
-    public List<object> ExpandedGames { get; set; }
+    public List<long> ExpandedGames { get; set; }
 
     [JsonPropertyName("expansions")]
     [JsonProperty("expansions")]
-    public List<object> Expansions { get; set; }
+    public List<long> Expansions { get; set; }
 
     [JsonPropertyName("external_games")]
     [JsonProperty("external_games")]
-    public List<object> ExternalGames { get; set; }
+    public List<long> ExternalGames { get; set; }
 
     [JsonPropertyName("first_release_date")]
     [JsonProperty("first_release_date")]
@@ -74,31 +74,31 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("forks")]
     [JsonProperty("forks")]
-    public List<object> Forks { get; set; }
+    public List<long> Forks { get; set; }
 
     [JsonPropertyName("franchise")]
     [JsonProperty("franchise")]
-    public object Franchise { get; set; }
+    public long Franchise { get; set; }
 
     [JsonPropertyName("franchises")]
     [JsonProperty("franchises")]
-    public List<object> Franchises { get; set; }
+    public List<long> Franchises { get; set; }
 
     [JsonPropertyName("game_engines")]
     [JsonProperty("game_engines")]
-    public List<object> GameEngines { get; set; }
+    public List<long> GameEngines { get; set; }
 
     [JsonPropertyName("game_localizations")]
     [JsonProperty("game_localizations")]
-    public List<object> GameLocalizations { get; set; }
+    public List<long> GameLocalizations { get; set; }
 
     [JsonPropertyName("game_modes")]
     [JsonProperty("game_modes")]
-    public List<object> GameModes { get; set; }
+    public List<long> GameModes { get; set; }
 
     [JsonPropertyName("genres")]
     [JsonProperty("genres")]
-    public List<object> Genres { get; set; }
+    public List<long> Genres { get; set; }
 
     [JsonPropertyName("hypes")]
     [JsonProperty("hypes")]
@@ -110,19 +110,19 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("involved_companies")]
     [JsonProperty("involved_companies")]
-    public List<object> InvolvedCompanies { get; set; }
+    public List<long> InvolvedCompanies { get; set; }
 
     [JsonPropertyName("keywords")]
     [JsonProperty("keywords")]
-    public List<object> Keywords { get; set; }
+    public List<long> Keywords { get; set; }
 
     [JsonPropertyName("language_supports")]
     [JsonProperty("language_supports")]
-    public List<object> LanguageSupports { get; set; }
+    public List<long> LanguageSupports { get; set; }
 
     [JsonPropertyName("multiplayer_modes")]
     [JsonProperty("multiplayer_modes")]
-    public List<object> MultiplayerModes { get; set; }
+    public List<long> MultiplayerModes { get; set; }
 
     [JsonPropertyName("name")]
     [JsonProperty("name")]
@@ -130,19 +130,19 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("parent_game")]
     [JsonProperty("parent_game")]
-    public object ParentGame { get; set; }
+    public long ParentGame { get; set; }
 
     [JsonPropertyName("platforms")]
     [JsonProperty("platforms")]
-    public List<object> Platforms { get; set; }
+    public List<long> Platforms { get; set; }
 
     [JsonPropertyName("player_perspectives")]
     [JsonProperty("player_perspectives")]
-    public List<object> PlayerPerspectives { get; set; }
+    public List<long> PlayerPerspectives { get; set; }
 
     [JsonPropertyName("ports")]
     [JsonProperty("ports")]
-    public List<object> Ports { get; set; }
+    public List<long> Ports { get; set; }
 
     [JsonPropertyName("rating")]
     [JsonProperty("rating")]
@@ -154,23 +154,23 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("release_dates")]
     [JsonProperty("release_dates")]
-    public List<object> ReleaseDates { get; set; }
+    public List<long> ReleaseDates { get; set; }
 
     [JsonPropertyName("remakes")]
     [JsonProperty("remakes")]
-    public List<object> Remakes { get; set; }
+    public List<long> Remakes { get; set; }
 
     [JsonPropertyName("remasters")]
     [JsonProperty("remasters")]
-    public List<object> Remasters { get; set; }
+    public List<long> Remasters { get; set; }
 
     [JsonPropertyName("screenshots")]
     [JsonProperty("screenshots")]
-    public List<object> Screenshots { get; set; }
+    public List<long> Screenshots { get; set; }
 
     [JsonPropertyName("similar_games")]
     [JsonProperty("similar_games")]
-    public List<object> SimilarGames { get; set; }
+    public List<long> SimilarGames { get; set; }
 
     [JsonPropertyName("slug")]
     [JsonProperty("slug")]
@@ -178,7 +178,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("standalone_expansions")]
     [JsonProperty("standalone_expansions")]
-    public List<object> StandaloneExpansions { get; set; }
+    public List<long> StandaloneExpansions { get; set; }
 
     [JsonPropertyName("status")]
     [JsonProperty("status")]
@@ -198,7 +198,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("themes")]
     [JsonProperty("themes")]
-    public List<object> Themes { get; set; }
+    public List<long> Themes { get; set; }
 
     [JsonPropertyName("total_rating")]
     [JsonProperty("total_rating")]
@@ -218,7 +218,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("version_parent")]
     [JsonProperty("version_parent")]
-    public object VersionParent { get; set; }
+    public long VersionParent { get; set; }
 
     [JsonPropertyName("version_title")]
     [JsonProperty("version_title")]
@@ -226,11 +226,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("videos")]
     [JsonProperty("videos")]
-    public List<object> Videos { get; set; }
+    public List<long> Videos { get; set; }
 
     [JsonPropertyName("websites")]
     [JsonProperty("websites")]
-    public List<object> Websites { get; set; }
+    public List<long> Websites { get; set; }
   }
 
   public enum Category

@@ -13,7 +13,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("character")]
     [JsonProperty("character")]
-    public object Character { get; set; }
+    public long Character { get; set; }
 
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]
@@ -21,11 +21,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("collection")]
     [JsonProperty("collection")]
-    public object Collection { get; set; }
+    public long Collection { get; set; }
 
     [JsonPropertyName("company")]
     [JsonProperty("company")]
-    public object Company { get; set; }
+    public long Company { get; set; }
 
     [JsonPropertyName("description")]
     [JsonProperty("description")]
@@ -33,7 +33,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("game")]
     [JsonProperty("game")]
-    public object Game { get; set; }
+    public long Game { get; set; }
 
     [JsonPropertyName("name")]
     [JsonProperty("name")]
@@ -41,7 +41,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("platform")]
     [JsonProperty("platform")]
-    public object Platform { get; set; }
+    public long Platform { get; set; }
 
     [JsonPropertyName("published_at")]
     [JsonProperty("published_at")]
@@ -49,7 +49,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("theme")]
     [JsonProperty("theme")]
-    public object Theme { get; set; }
+    public long Theme { get; set; }
   }
 }
 

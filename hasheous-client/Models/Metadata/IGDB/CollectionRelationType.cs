@@ -10,11 +10,11 @@ namespace HasheousClient.Models.Metadata.IGDB
   {
     [JsonPropertyName("allowed_child_type")]
     [JsonProperty("allowed_child_type")]
-    public object AllowedChildType { get; set; }
+    public long AllowedChildType { get; set; }
 
     [JsonPropertyName("allowed_parent_type")]
     [JsonProperty("allowed_parent_type")]
-    public object AllowedParentType { get; set; }
+    public long AllowedParentType { get; set; }
 
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]

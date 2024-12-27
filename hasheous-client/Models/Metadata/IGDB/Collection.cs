@@ -10,11 +10,11 @@ namespace HasheousClient.Models.Metadata.IGDB
   {
     [JsonPropertyName("as_child_relations")]
     [JsonProperty("as_child_relations")]
-    public List<object> AsChildRelations { get; set; }
+    public List<long> AsChildRelations { get; set; }
 
     [JsonPropertyName("as_parent_relations")]
     [JsonProperty("as_parent_relations")]
-    public List<object> AsParentRelations { get; set; }
+    public List<long> AsParentRelations { get; set; }
 
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]
@@ -26,7 +26,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("games")]
     [JsonProperty("games")]
-    public List<object> Games { get; set; }
+    public List<long> Games { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]
@@ -46,7 +46,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("type")]
     [JsonProperty("type")]
-    public object Type { get; set; }
+    public long Type { get; set; }
 
     [JsonPropertyName("url")]
     [JsonProperty("url")]

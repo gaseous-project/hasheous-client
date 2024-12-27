@@ -38,7 +38,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("platform_version")]
     [JsonProperty("platform_version")]
-    public object PlatformVersion { get; set; }
+    public long PlatformVersion { get; set; }
 
     [JsonPropertyName("region")]
     [JsonProperty("region")]

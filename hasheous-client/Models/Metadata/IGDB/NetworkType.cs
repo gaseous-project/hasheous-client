@@ -17,7 +17,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("event_networks")]
     [JsonProperty("event_networks")]
-    public List<object> EventNetworks { get; set; }
+    public List<long> EventNetworks { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]

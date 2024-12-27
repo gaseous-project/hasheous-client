@@ -15,7 +15,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("company")]
     [JsonProperty("company")]
-    public object Company { get; set; }
+    public long Company { get; set; }
 
     [JsonPropertyName("developer")]
     [JsonProperty("developer")]

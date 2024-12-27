@@ -17,7 +17,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("event")]
     [JsonProperty("event")]
-    public object Event { get; set; }
+    public long Event { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]
@@ -25,7 +25,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("network_type")]
     [JsonProperty("network_type")]
-    public object NetworkType { get; set; }
+    public long NetworkType { get; set; }
 
     [JsonPropertyName("updated_at")]
     [JsonProperty("updated_at")]

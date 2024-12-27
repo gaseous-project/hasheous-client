@@ -21,15 +21,15 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("game")]
     [JsonProperty("game")]
-    public object Game { get; set; }
+    public long Game { get; set; }
 
     [JsonPropertyName("language")]
     [JsonProperty("language")]
-    public object Language { get; set; }
+    public long Language { get; set; }
 
     [JsonPropertyName("language_support_type")]
     [JsonProperty("language_support_type")]
-    public object LanguageSupportType { get; set; }
+    public long LanguageSupportType { get; set; }
 
     [JsonPropertyName("updated_at")]
     [JsonProperty("updated_at")]
