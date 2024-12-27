@@ -11,11 +11,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("game")]
     [JsonProperty("game")]
-    public object Game { get; set; }
+    public long Game { get; set; }
 
     [JsonPropertyName("game_feature")]
     [JsonProperty("game_feature")]
-    public object GameFeature { get; set; }
+    public long GameFeature { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]

@@ -14,7 +14,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("cover")]
     [JsonProperty("cover")]
-    public object Cover { get; set; }
+    public long Cover { get; set; }
 
     [JsonPropertyName("created_at")]
     [JsonProperty("created_at")]
@@ -22,7 +22,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("game")]
     [JsonProperty("game")]
-    public object Game { get; set; }
+    public long Game { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]
@@ -34,7 +34,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("region")]
     [JsonProperty("region")]
-    public object Region { get; set; }
+    public long Region { get; set; }
 
     [JsonPropertyName("updated_at")]
     [JsonProperty("updated_at")]

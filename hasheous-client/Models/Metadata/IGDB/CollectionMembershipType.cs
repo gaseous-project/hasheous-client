@@ -10,7 +10,7 @@ namespace HasheousClient.Models.Metadata.IGDB
   {
     [JsonPropertyName("allowed_collection_type")]
     [JsonProperty("allowed_collection_type")]
-    public object AllowedCollectionType { get; set; }
+    public long AllowedCollectionType { get; set; }
 
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]

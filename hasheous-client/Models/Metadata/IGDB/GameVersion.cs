@@ -17,15 +17,15 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("features")]
     [JsonProperty("features")]
-    public List<object> Features { get; set; }
+    public List<long> Features { get; set; }
 
     [JsonPropertyName("game")]
     [JsonProperty("game")]
-    public object Game { get; set; }
+    public long Game { get; set; }
 
     [JsonPropertyName("games")]
     [JsonProperty("games")]
-    public List<object> Games { get; set; }
+    public List<long> Games { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]

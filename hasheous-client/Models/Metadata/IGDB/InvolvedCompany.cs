@@ -13,7 +13,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("company")]
     [JsonProperty("company")]
-    public object Company { get; set; }
+    public long Company { get; set; }
 
     [JsonPropertyName("created_at")]
     [JsonProperty("created_at")]
@@ -25,7 +25,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("game")]
     [JsonProperty("game")]
-    public object Game { get; set; }
+    public long Game { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]

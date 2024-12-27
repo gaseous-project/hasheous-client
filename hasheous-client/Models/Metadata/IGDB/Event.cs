@@ -25,11 +25,11 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("event_logo")]
     [JsonProperty("event_logo")]
-    public object EventLogo { get; set; }
+    public long EventLogo { get; set; }
 
     [JsonPropertyName("event_networks")]
     [JsonProperty("event_networks")]
-    public List<object> EventNetwork { get; set; }
+    public List<long> EventNetwork { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]
@@ -37,7 +37,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("games")]
     [JsonProperty("games")]
-    public List<object> Games { get; set; }
+    public List<long> Games { get; set; }
 
     [JsonPropertyName("live_stream_url")]
     [JsonProperty("live_stream_url")]
@@ -65,7 +65,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("videos")]
     [JsonProperty("videos")]
-    public List<object> Videos { get; set; }
+    public List<long> Videos { get; set; }
   }
 }
 

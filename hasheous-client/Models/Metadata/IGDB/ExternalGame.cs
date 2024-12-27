@@ -25,7 +25,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("game")]
     [JsonProperty("game")]
-    public object Game { get; set; }
+    public long Game { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]
@@ -41,7 +41,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("platform")]
     [JsonProperty("platform")]
-    public object Platform { get; set; }
+    public long Platform { get; set; }
 
     [JsonPropertyName("uid")]
     [JsonProperty("uid")]

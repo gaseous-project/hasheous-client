@@ -15,7 +15,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("content_descriptions")]
     [JsonProperty("content_descriptions")]
-    public List<object> ContentDescriptions { get; set; }
+    public List<long> ContentDescriptions { get; set; }
 
     [JsonPropertyName("id")]
     [JsonProperty("id")]
