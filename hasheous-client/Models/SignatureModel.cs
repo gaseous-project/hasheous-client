@@ -77,7 +77,8 @@ namespace HasheousClient.Models
                 MAMEArcade = 2,
                 MAMEMess = 3,
                 NoIntros = 4,
-                Redump = 5
+                Redump = 5,
+                WHDLoad = 6
             }
 
             public class MediaType
