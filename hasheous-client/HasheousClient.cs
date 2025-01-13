@@ -349,7 +349,8 @@ namespace HasheousClient
 
         public enum MetadataProvider
         {
-            IGDB
+            IGDB,
+            TheGamesDb
         }
     }
 }
