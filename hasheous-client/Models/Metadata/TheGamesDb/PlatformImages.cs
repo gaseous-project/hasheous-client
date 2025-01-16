@@ -11,7 +11,7 @@ namespace HasheousClient.Models.Metadata.TheGamesDb
         {
             public int count { get; set; }
             public ImageBaseUrlMeta base_url { get; set; }
-            public List<PlatformImage> images { get; set; }
+            public Dictionary<string, List<PlatformImage>> images { get; set; }
         }
     }
 }

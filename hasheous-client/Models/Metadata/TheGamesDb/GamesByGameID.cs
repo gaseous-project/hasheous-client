@@ -22,12 +22,12 @@ namespace HasheousClient.Models.Metadata.TheGamesDb
             public class BoxartDataItem
             {
                 public ImageBaseUrlMeta base_url { get; set; }
-                public List<GameImage> data { get; set; }
+                public Dictionary<string, List<GameImage>> data { get; set; }
             }
 
             public class PlatformDataItem
             {
-                public List<PlatformSkinny> data { get; set; }
+                public Dictionary<string, PlatformSkinny> data { get; set; }
             }
         }
     }
