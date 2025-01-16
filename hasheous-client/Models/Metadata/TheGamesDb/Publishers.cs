@@ -10,7 +10,7 @@ namespace HasheousClient.Models.Metadata.TheGamesDb
         public class DataItem
         {
             public int count { get; set; }
-            public List<Publisher> publishers { get; set; }
+            public Dictionary<string, Publisher> publishers { get; set; }
         }
     }
 }
