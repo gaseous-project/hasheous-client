@@ -7,6 +7,6 @@ namespace HasheousClient.Models.Metadata.TheGamesDb
     {
         public int id { get; set; }
         public string filename { get; set; }
-        public string resolution { get; set; }
+        public string type { get; set; }
     }
 }
