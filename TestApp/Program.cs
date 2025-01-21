@@ -10,8 +10,8 @@ HasheousClient.Hasheous hasheous = new HasheousClient.Hasheous();
 Console.WriteLine("Fetching data from Hasheous...");
 LookupItemModel? HasheousResult = hasheous.RetrieveFromHasheous(new HashLookupModel
 {
-    MD5 = "7a61d6a9bd7ac1a3249ef167ae136af7"
-});
+    MD5 = "cfa3200659c5cb7b998cb55c49ca0ff4"
+}, true);
 
 if (HasheousResult != null)
 {
@@ -25,14 +25,14 @@ if (HasheousResult != null)
     Console.WriteLine(outString);
 }
 
-Console.WriteLine("Fetching platforms from Hasheous...");
-List<DataObjectItem> platforms = hasheous.GetPlatforms();
-for (int i = 0; i < platforms.Count; i++)
-{
-    Console.WriteLine(i + ": " + platforms[i].Name);
-}
+// Console.WriteLine("Fetching platforms from Hasheous...");
+// List<DataObjectItem> platforms = hasheous.GetPlatforms();
+// for (int i = 0; i < platforms.Count; i++)
+// {
+//     Console.WriteLine(i + ": " + platforms[i].Name);
+// }
 
-Console.WriteLine("Fetching metadata via metadata proxy from Hasheous...");
+// Console.WriteLine("Fetching metadata via metadata proxy from Hasheous...");
 // HasheousClient.Models.Metadata.IGDB.Game metadataProxy = hasheous.GetMetadataProxy<HasheousClient.Models.Metadata.IGDB.Game>(HasheousClient.Hasheous.MetadataProvider.IGDB, 3192);
 // if (metadataProxy != null)
 // {
@@ -47,7 +47,7 @@ Console.WriteLine("Fetching metadata via metadata proxy from Hasheous...");
 //     Console.WriteLine(outString);
 // }
 
-// Dictionary<string, object> metadataProxy = hasheous.GetMetadataProxy<Dictionary<string, object>>("Game", HasheousClient.Hasheous.MetadataProvider.IGDB, 3192);
+// Dictionary<string, object> metadataProxy = hasheous.GetMetadataProxy<Dictionary<string, object>>("Game", HasheousClient.Hasheous.MetadataProvider.TheGamesDb, 24326);
 // if (metadataProxy != null)
 // {
 //     Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
@@ -61,30 +61,30 @@ Console.WriteLine("Fetching metadata via metadata proxy from Hasheous...");
 //     Console.WriteLine(outString);
 // }
 
-Dictionary<string, object>[] metadataPlatformProxy = hasheous.GetMetadataProxy_SearchPlatform<Dictionary<string, object>>("Platform", HasheousClient.Hasheous.MetadataProvider.IGDB, "c64");
-if (metadataPlatformProxy != null)
-{
-    Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
-    {
-        Formatting = Newtonsoft.Json.Formatting.Indented,
-        NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
-        MaxDepth = 8
-    };
-    jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
-    string outString = Newtonsoft.Json.JsonConvert.SerializeObject(metadataPlatformProxy, jsonSerializerSettings);
-    Console.WriteLine(outString);
-}
+// Dictionary<string, object>[] metadataPlatformProxy = hasheous.GetMetadataProxy_SearchPlatform<Dictionary<string, object>>("Platform", HasheousClient.Hasheous.MetadataProvider.IGDB, "c64");
+// if (metadataPlatformProxy != null)
+// {
+//     Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
+//     {
+//         Formatting = Newtonsoft.Json.Formatting.Indented,
+//         NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
+//         MaxDepth = 8
+//     };
+//     jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+//     string outString = Newtonsoft.Json.JsonConvert.SerializeObject(metadataPlatformProxy, jsonSerializerSettings);
+//     Console.WriteLine(outString);
+// }
 
-Dictionary<string, object>[] metadataProxy = hasheous.GetMetadataProxy_SearchGame<Dictionary<string, object>>("Game", HasheousClient.Hasheous.MetadataProvider.IGDB, "15", "Jumpman");
-if (metadataProxy != null)
-{
-    Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
-    {
-        Formatting = Newtonsoft.Json.Formatting.Indented,
-        NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
-        MaxDepth = 8
-    };
-    jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
-    string outString = Newtonsoft.Json.JsonConvert.SerializeObject(metadataProxy, jsonSerializerSettings);
-    Console.WriteLine(outString);
-}
+// Dictionary<string, object>[] metadataProxy = hasheous.GetMetadataProxy_SearchGame<Dictionary<string, object>>("Game", HasheousClient.Hasheous.MetadataProvider.IGDB, "15", "Jumpman");
+// if (metadataProxy != null)
+// {
+//     Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
+//     {
+//         Formatting = Newtonsoft.Json.Formatting.Indented,
+//         NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
+//         MaxDepth = 8
+//     };
+//     jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+//     string outString = Newtonsoft.Json.JsonConvert.SerializeObject(metadataProxy, jsonSerializerSettings);
+//     Console.WriteLine(outString);
+// }

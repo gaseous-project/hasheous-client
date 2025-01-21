@@ -13,16 +13,16 @@ namespace HasheousClient
         /// <returns>
         /// The lookup item
         /// </returns>
-        public LookupItemModel RetrieveFromHasheous(HashLookupModel hash)
+        public LookupItemModel RetrieveFromHasheous(HashLookupModel hash, bool returnAllSources)
         {
-            Task<LookupItemModel> result = _RetrieveFromHasheousAsync(hash);
+            Task<LookupItemModel> result = _RetrieveFromHasheousAsync(hash, returnAllSources);
 
             return result.Result;
         }
 
-        private async Task<LookupItemModel> _RetrieveFromHasheousAsync(HashLookupModel hashLookup)
+        private async Task<LookupItemModel> _RetrieveFromHasheousAsync(HashLookupModel hashLookup, bool returnAllSources)
         {
-            var result = await HasheousClient.WebApp.HttpHelper.Post<LookupItemModel>($"/api/v1/Lookup/ByHash", hashLookup);
+            var result = await HasheousClient.WebApp.HttpHelper.Post<LookupItemModel>($"/api/v1/Lookup/ByHash?returnAllSources=" + returnAllSources.ToString(), hashLookup);
 
             return result;
         }
@@ -141,7 +141,33 @@ namespace HasheousClient
 
         private async Task<T> _GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, long id)
         {
-            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/{TypeName}?id={id}");
+            string endpointName = TypeName;
+            string queryString = "";
+
+            // if the metadataProvider is IGDB, just pass it through
+            // if the metadataProvider is TheGamesDB, we need to change the endpoint name
+            switch (metadataProvider)
+            {
+                case MetadataProvider.TheGamesDb:
+                    switch (TypeName)
+                    {
+                        case "Game":
+                            endpointName = "Games/ByGameID";
+                            queryString = $"&fields={Uri.EscapeUriString("players,publishers,genres,overview,last_updated,rating,platform,coop,youtube,os,processor,ram,hdd,video,sound,alternates")}";
+                            // /api/v1/MetadataProxy/TheGamesDb/ByGameID?id=24326&fields=players,publishers,genres,overview,last_updated,rating,platform,coop,youtube,os,processor,ram,hdd,video,sound,alternates
+                            break;
+                        case "Platform":
+                            endpointName = "ByPlatformID";
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/{endpointName}?id={id}{queryString}");
 
             return result;
         }
@@ -163,6 +189,14 @@ namespace HasheousClient
         /// </returns>
         public T GetMetadataProxy<T>(MetadataProvider metadataProvider, string slug)
         {
+            switch (metadataProvider)
+            {
+                case MetadataProvider.TheGamesDb:
+                    throw new Exception("TheGamesDb does not support slug lookups");
+                default:
+                    break;
+            }
+
             string TypeName = typeof(T).Name;
 
             Task<T> result = _GetMetadataProxy<T>(TypeName, metadataProvider, slug);
@@ -190,6 +224,14 @@ namespace HasheousClient
         /// </returns>
         public T GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, string slug)
         {
+            switch (metadataProvider)
+            {
+                case MetadataProvider.TheGamesDb:
+                    throw new Exception("TheGamesDb does not support slug lookups");
+                default:
+                    break;
+            }
+
             Task<T> result = _GetMetadataProxy<T>(TypeName, metadataProvider, slug);
 
             return result.Result;

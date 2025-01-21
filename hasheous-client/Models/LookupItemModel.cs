@@ -21,6 +21,11 @@ namespace HasheousClient.Models
         public SignatureModel? Signature { get; set; }
 
         /// <summary>
+        /// Signatures associated with the game mapping
+        /// </summary>
+        public Dictionary<SignatureModel.RomItem.SignatureSourceType, List<SignatureModel>>? Signatures { get; set; }
+
+        /// <summary>
         /// Platform metadata maps to public metadata sources
         /// </summary>
         public MiniDataObjectItem Platform { get; set; }
