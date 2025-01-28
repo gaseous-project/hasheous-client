@@ -10,7 +10,7 @@ HasheousClient.Hasheous hasheous = new HasheousClient.Hasheous();
 Console.WriteLine("Fetching data from Hasheous...");
 LookupItemModel? HasheousResult = hasheous.RetrieveFromHasheous(new HashLookupModel
 {
-    MD5 = "cfa3200659c5cb7b998cb55c49ca0ff4"
+    MD5 = "cff69b70a8ad674a0efe5558765855c9"
 }, true);
 
 if (HasheousResult != null)
@@ -47,19 +47,19 @@ if (HasheousResult != null)
 //     Console.WriteLine(outString);
 // }
 
-// Dictionary<string, object> metadataProxy = hasheous.GetMetadataProxy<Dictionary<string, object>>("Game", HasheousClient.Hasheous.MetadataProvider.TheGamesDb, 24326);
-// if (metadataProxy != null)
-// {
-//     Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
-//     {
-//         Formatting = Newtonsoft.Json.Formatting.Indented,
-//         NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
-//         MaxDepth = 8
-//     };
-//     jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
-//     string outString = Newtonsoft.Json.JsonConvert.SerializeObject(metadataProxy, jsonSerializerSettings);
-//     Console.WriteLine(outString);
-// }
+Dictionary<string, object> metadataProxy = hasheous.GetMetadataProxy<Dictionary<string, object>>("Game", HasheousClient.Hasheous.MetadataProvider.TheGamesDb, 160);
+if (metadataProxy != null)
+{
+    Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
+    {
+        Formatting = Newtonsoft.Json.Formatting.Indented,
+        NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
+        MaxDepth = 8
+    };
+    jsonSerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+    string outString = Newtonsoft.Json.JsonConvert.SerializeObject(metadataProxy, jsonSerializerSettings);
+    Console.WriteLine(outString);
+}
 
 // Dictionary<string, object>[] metadataPlatformProxy = hasheous.GetMetadataProxy_SearchPlatform<Dictionary<string, object>>("Platform", HasheousClient.Hasheous.MetadataProvider.IGDB, "c64");
 // if (metadataPlatformProxy != null)
