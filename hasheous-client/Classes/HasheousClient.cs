@@ -205,7 +205,7 @@ namespace HasheousClient
             List<string> queryStrings = new List<string>();
             if (id != null)
             {
-                queryStrings.Add($"id={id}{queryString}");
+                queryStrings.Add($"Id={id}{queryString}");
             }
 
             if (queryString.Length > 0)
