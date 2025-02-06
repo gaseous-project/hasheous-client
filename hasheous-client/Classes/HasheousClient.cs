@@ -446,8 +446,10 @@ namespace HasheousClient
 
         public enum MetadataProvider
         {
+            None,
             IGDB,
-            TheGamesDb
+            TheGamesDb,
+            RetroAchievements
         }
     }
 }
