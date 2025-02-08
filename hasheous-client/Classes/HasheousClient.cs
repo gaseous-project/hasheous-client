@@ -105,7 +105,7 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T GetMetadataProxy<T>(MetadataProvider metadataProvider, long id)
+        public T GetMetadataProxy<T>(MetadataProvider metadataProvider, long? id)
         {
             string TypeName = typeof(T).Name;
 
@@ -132,33 +132,70 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, long id)
+        public T GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, long? id)
         {
             Task<T> result = _GetMetadataProxy<T>(TypeName, metadataProvider, id);
 
             return result.Result;
         }
 
-        private async Task<T> _GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, long id)
+        private async Task<T> _GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, long? id)
         {
             string endpointName = TypeName;
             string queryString = "";
+            bool lowerCaseId = false;
 
             // if the metadataProvider is IGDB, just pass it through
             // if the metadataProvider is TheGamesDB, we need to change the endpoint name
             switch (metadataProvider)
             {
                 case MetadataProvider.TheGamesDb:
+                    lowerCaseId = true;
                     switch (TypeName)
                     {
                         case "Game":
+                        case "GamesByGameID":
                             endpointName = "Games/ByGameID";
-                            queryString = $"&fields={Uri.EscapeUriString("players,publishers,genres,overview,last_updated,rating,platform,coop,youtube,os,processor,ram,hdd,video,sound,alternates")}";
-                            // /api/v1/MetadataProxy/TheGamesDb/ByGameID?id=24326&fields=players,publishers,genres,overview,last_updated,rating,platform,coop,youtube,os,processor,ram,hdd,video,sound,alternates
+                            queryString = $"&fields={Uri.EscapeUriString("players,publishers,genres,overview,last_updated,rating,platform,coop,youtube,os,processor,ram,hdd,video,sound,alternates&include=boxart,platform")}";
+                            if (id == null)
+                            {
+                                throw new Exception("ID is required for TheGamesDb");
+                            }
                             break;
+
                         case "Platform":
-                            endpointName = "ByPlatformID";
+                        case "PlatformsByPlatformID":
+                            endpointName = "Platforms/ByPlatformID";
+                            queryString = $"&fields={Uri.EscapeUriString("icon,console,controller,developer,manufacturer,media,cpu,memory,graphics,sound,maxcontrollers,display,overview,youtube")}";
+                            if (id == null)
+                            {
+                                throw new Exception("ID is required for TheGamesDb");
+                            }
                             break;
+
+                        case "Platforms":
+                            endpointName = "Platforms";
+                            queryString = $"&fields={Uri.EscapeUriString("icon,console,controller,developer,manufacturer,media,cpu,memory,graphics,sound,maxcontrollers,display,overview,youtube")}";
+                            break;
+
+                        case "Genre":
+                        case "Genres":
+                            endpointName = "Genres";
+                            queryString = "";
+                            break;
+
+                        case "Publisher":
+                        case "Publishers":
+                            endpointName = "Publishers";
+                            queryString = "";
+                            break;
+
+                        case "Developer":
+                        case "Developers":
+                            endpointName = "Developers";
+                            queryString = "";
+                            break;
+
                         default:
                             break;
                     }
@@ -167,7 +204,34 @@ namespace HasheousClient
                     break;
             }
 
-            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/{endpointName}?id={id}{queryString}");
+            List<string> queryStrings = new List<string>();
+            if (id != null)
+            {
+                if (lowerCaseId == true)
+                {
+                    queryStrings.Add($"id={id}{queryString}");
+                }
+                else
+                {
+                    queryStrings.Add($"Id={id}{queryString}");
+                }
+            }
+
+            if (queryString.Length > 0)
+            {
+                queryStrings.Add(queryString);
+            }
+
+            string urlQueryString = string.Join("&", queryStrings);
+            if (urlQueryString.Length > 0)
+            {
+                urlQueryString = "?" + urlQueryString;
+            }
+
+            string urlString = $"/api/v1/MetadataProxy/{metadataProvider}/{endpointName}{urlQueryString}";
+            Console.WriteLine(urlString);
+
+            var result = await HasheousClient.WebApp.HttpHelper.Get<T>(urlString);
 
             return result;
         }
@@ -391,8 +455,10 @@ namespace HasheousClient
 
         public enum MetadataProvider
         {
+            None,
             IGDB,
-            TheGamesDb
+            TheGamesDb,
+            RetroAchievements
         }
     }
 }

@@ -80,7 +80,12 @@ namespace HasheousClient.Models
         /// <summary>
         /// TheGamesDb - queries TheGamesDb service for metadata
         /// </summary>
-        TheGamesDb
+        TheGamesDb,
+
+        /// <summary>
+        /// OpenVGDB - queries the RetroAchievements service for metadata
+        /// </summary>
+        RetroAchievements
     }
 
     /// <summary>
