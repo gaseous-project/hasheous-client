@@ -13,6 +13,11 @@ env:
   DOTNET_NOLOGO: true
   NuGetDirectory: ${{ github.workspace}}/nuget
 
+permissions:
+  id-token: write
+  attestations: write
+  contents: write
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -58,6 +63,10 @@ jobs:
         run: dotnet nuget add source --username michael-j-green --password ${{ secrets.NUGETKEY }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/gaseous-project/index.json"
       - name: Push to GitHub Package Registry
         run: dotnet nuget push "${{ env.NuGetDirectory }}/*.nupkg" --api-key ${{ secrets.NUGETKEY }} --source "github" --skip-duplicate 
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.NuGetDirectory }}/*
       
   deploy_github-nuget:
     runs-on: ubuntu-latest
