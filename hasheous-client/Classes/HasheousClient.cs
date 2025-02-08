@@ -143,12 +143,14 @@ namespace HasheousClient
         {
             string endpointName = TypeName;
             string queryString = "";
+            bool lowerCaseId = false;
 
             // if the metadataProvider is IGDB, just pass it through
             // if the metadataProvider is TheGamesDB, we need to change the endpoint name
             switch (metadataProvider)
             {
                 case MetadataProvider.TheGamesDb:
+                    lowerCaseId = true;
                     switch (TypeName)
                     {
                         case "Game":
@@ -205,7 +207,14 @@ namespace HasheousClient
             List<string> queryStrings = new List<string>();
             if (id != null)
             {
-                queryStrings.Add($"Id={id}{queryString}");
+                if (lowerCaseId == true)
+                {
+                    queryStrings.Add($"id={id}{queryString}");
+                }
+                else
+                {
+                    queryStrings.Add($"Id={id}{queryString}");
+                }
             }
 
             if (queryString.Length > 0)
