@@ -37,6 +37,14 @@ LookupItemModel? HasheousResult = hasheous.RetrieveFromHasheous(new HashLookupMo
 });
 ```
 
+### CRC Hash lookup
+```c#
+LookupItemModel? HasheousResult = hasheous.RetrieveFromHasheous(new HashLookupModel
+{
+    CRC = "df07e2e3"
+});
+```
+
 ### Get Platforms
 ```c#
 List<DataObjectItem> platforms = hasheous.GetPlatforms();
