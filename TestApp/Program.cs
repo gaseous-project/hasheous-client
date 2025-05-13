@@ -25,12 +25,12 @@ if (HasheousResult != null)
     Console.WriteLine(outString);
 }
 
-// Console.WriteLine("Fetching platforms from Hasheous...");
-// List<DataObjectItem> platforms = hasheous.GetPlatforms();
-// for (int i = 0; i < platforms.Count; i++)
-// {
-//     Console.WriteLine(i + ": " + platforms[i].Name);
-// }
+Console.WriteLine("Fetching platforms from Hasheous...");
+List<DataObjectItem> platforms = hasheous.GetPlatforms();
+for (int i = 0; i < platforms.Count; i++)
+{
+    Console.WriteLine(i + ": " + platforms[i].Name);
+}
 
 // Console.WriteLine("Fetching metadata via metadata proxy from Hasheous...");
 // HasheousClient.Models.Metadata.IGDB.Game metadataProxy = hasheous.GetMetadataProxy<HasheousClient.Models.Metadata.IGDB.Game>(HasheousClient.Hasheous.MetadataProvider.IGDB, 3192);
