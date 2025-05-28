@@ -14,7 +14,7 @@ namespace HasheousClient.WebApp
         {
             get
             {
-                return client.BaseAddress.ToString();
+                return client.BaseAddress != null ? client.BaseAddress.ToString() : string.Empty;
             }
             set
             {
@@ -68,9 +68,9 @@ namespace HasheousClient.WebApp
             }
         }
 
-        public static string APIKey = "";
-        public static string ClientKey = "";
-        public static Dictionary<string, string> Headers = new Dictionary<string, string>();
+        public static string APIKey { get; set; } = "";
+        public static string ClientKey { get; set; } = "";
+        public static Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
 
         private static HttpClient client = new HttpClient();
 
@@ -79,7 +79,6 @@ namespace HasheousClient.WebApp
             // ensure headers are built
             BuildHeaders();
 
-            //var jsonContent = JsonContent.Create(contentValue);
             var stringContent = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentValue), Encoding.UTF8, "application/json");
             await stringContent.LoadIntoBufferAsync();
             var response = await client.PostAsync(url, stringContent);
@@ -88,16 +87,12 @@ namespace HasheousClient.WebApp
             // Deserialize the updated product from the response body.
             var resultStr = await response.Content.ReadAsStringAsync();
             var resultObject = JsonConvert.DeserializeObject<T>(resultStr);
+            if (resultObject == null)
+            {
+                throw new InvalidOperationException("Deserialization returned null for type " + typeof(T).FullName);
+            }
             return resultObject;
         }
-
-        // public static async Task Put<T>(string url, T stringValue)
-        // {
-        //     Client.BaseAddress = new Uri(apiBasicUri);
-        //     var content = new StringContent(JsonConvert.SerializeObject(stringValue), Encoding.UTF8, "application/json");
-        //     var result = await Client.PutAsync(url, content);
-        //     result.EnsureSuccessStatusCode();
-        // }
 
         public static async Task<T> Get<T>(string url)
         {
@@ -111,20 +106,17 @@ namespace HasheousClient.WebApp
             string resultStr = await response.Content.ReadAsStringAsync();
 
             // Deserialize the response to T
-            T resultObject = JsonConvert.DeserializeObject<T>(resultStr, new JsonSerializerSettings
+            T? resultObject = JsonConvert.DeserializeObject<T>(resultStr, new JsonSerializerSettings
             {
                 MaxDepth = 8,
                 ObjectCreationHandling = ObjectCreationHandling.Auto,
                 CheckAdditionalContent = true
             });
+            if (resultObject == null)
+            {
+                throw new InvalidOperationException("Deserialization returned null for type " + typeof(T).FullName);
+            }
             return resultObject;
         }
-
-        // public static async Task Delete(string url)
-        // {
-        //     Client.BaseAddress = new Uri(apiBasicUri);
-        //     var result = await Client.DeleteAsync(url);
-        //     result.EnsureSuccessStatusCode();
-        // }
     }
 }
