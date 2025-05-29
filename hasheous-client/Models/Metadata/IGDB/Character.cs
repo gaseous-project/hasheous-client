@@ -11,6 +11,14 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("akas")]
     public string[] Akas { get; set; }
 
+    [JsonPropertyName("character_gender")]
+    [JsonProperty("character_gender")]
+    public long CharacterGender { get; set; }
+
+    [JsonPropertyName("character_species")]
+    [JsonProperty("character_species")]
+    public long CharacterSpecies { get; set; }
+
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]
     public string Checksum { get; set; }
@@ -31,10 +39,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("games")]
     public List<long> Games { get; set; }
 
-    [JsonPropertyName("gender")]
-    [JsonProperty("gender")]
-    public Gender? Gender { get; set; }
-
     [JsonPropertyName("id")]
     [JsonProperty("id")]
     public long? Id { get; set; }
@@ -51,10 +55,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("slug")]
     public string Slug { get; set; }
 
-    [JsonPropertyName("species")]
-    [JsonProperty("species")]
-    public Species? Species { get; set; }
-
     [JsonPropertyName("updated_at")]
     [JsonProperty("updated_at")]
     public DateTimeOffset? UpdatedAt { get; set; }
@@ -63,24 +63,7 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("url")]
     public string Url { get; set; }
   }
-
-  public enum Gender
-  {
-    Male = 1,
-    Female = 2,
-    Other = 3
-  }
-
-  public enum Species
-  {
-    Human = 1,
-    Alien = 2,
-    Animal = 3,
-    Android = 4,
-    Unknown = 5
-  }
 }
-
 
 namespace HasheousClient.Models.Metadata.IGDB.Override
 {

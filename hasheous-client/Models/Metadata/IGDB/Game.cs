@@ -32,10 +32,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("bundles")]
     public List<long> Bundles { get; set; }
 
-    [JsonPropertyName("category")]
-    [JsonProperty("category")]
-    public Category? Category { get; set; }
-
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]
     public string Checksum { get; set; }
@@ -95,6 +91,14 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonPropertyName("game_modes")]
     [JsonProperty("game_modes")]
     public List<long> GameModes { get; set; }
+
+    [JsonPropertyName("game_status")]
+    [JsonProperty("game_status")]
+    public long GameStatus { get; set; }
+
+    [JsonPropertyName("game_type")]
+    [JsonProperty("game_type")]
+    public long GameType { get; set; }
 
     [JsonPropertyName("genres")]
     [JsonProperty("genres")]
@@ -180,10 +184,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("standalone_expansions")]
     public List<long> StandaloneExpansions { get; set; }
 
-    [JsonPropertyName("status")]
-    [JsonProperty("status")]
-    public GameStatus? Status { get; set; }
-
     [JsonPropertyName("storyline")]
     [JsonProperty("storyline")]
     public string Storyline { get; set; }
@@ -232,37 +232,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("websites")]
     public List<long> Websites { get; set; }
   }
-
-  public enum Category
-  {
-    MainGame = 0,
-    DlcAddon = 1,
-    Expansion = 2,
-    Bundle = 3,
-    StandaloneExpansion = 4,
-    Mod = 5,
-    Episode = 6,
-    Season = 7,
-    Remake = 8,
-    Remaster = 9,
-    ExpandedGame = 10,
-    Port = 11,
-    Fork = 12,
-    Pack = 13,
-    Update = 14
-  }
-
-  public enum GameStatus
-  {
-    Released = 0,
-    Alpha = 2,
-    Beta = 3,
-    EarlyAccess = 4,
-    Offline = 5,
-    Cancelled = 6,
-    Rumored = 7,
-    Delisted = 8
-  }
 }
 
 namespace HasheousClient.Models.Metadata.IGDB.Override
@@ -300,7 +269,6 @@ namespace HasheousClient.Models.Metadata.IGDB.Override
     public IdentitiesOrValues Screenshots { get; set; }
     public IdentitiesOrValues SimilarGames { get; set; }
     public IdentitiesOrValues StandaloneExpansions { get; set; }
-    public GameStatus? Status { get; set; }
     public IdentitiesOrValues Themes { get; set; }
     public DateTimeOffset? UpdatedAt { get; set; }
     public IdentityOrValue VersionParent { get; set; }

@@ -8,10 +8,6 @@ namespace HasheousClient.Models.Metadata.IGDB
 {
   public class PlatformVersionReleaseDate : ITools, ITimestamps, IIdentifier, IHasChecksum
   {
-    [JsonPropertyName("category")]
-    [JsonProperty("category")]
-    public ReleaseDateCategory? Category { get; set; }
-
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]
     public string Checksum { get; set; }
@@ -23,6 +19,10 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonPropertyName("date")]
     [JsonProperty("date")]
     public DateTimeOffset? Date { get; set; }
+
+    [JsonPropertyName("date_format")]
+    [JsonProperty("date_format")]
+    public long DateFormat { get; set; }
 
     [JsonPropertyName("human")]
     [JsonProperty("human")]
@@ -40,9 +40,9 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("platform_version")]
     public long PlatformVersion { get; set; }
 
-    [JsonPropertyName("region")]
-    [JsonProperty("region")]
-    public ReleaseDateRegion? Region { get; set; }
+    [JsonPropertyName("release_region")]
+    [JsonProperty("release_region")]
+    public long? ReleaseRegion { get; set; }
 
     [JsonPropertyName("updated_at")]
     [JsonProperty("updated_at")]
