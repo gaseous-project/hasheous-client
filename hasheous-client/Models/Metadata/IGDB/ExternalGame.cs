@@ -7,10 +7,6 @@ namespace HasheousClient.Models.Metadata.IGDB
 {
   public class ExternalGame : ITools, ITimestamps, IIdentifier, IHasChecksum
   {
-    [JsonPropertyName("category")]
-    [JsonProperty("category")]
-    public ExternalCategory? Category { get; set; }
-
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]
     public string Checksum { get; set; }
@@ -23,6 +19,14 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("created_at")]
     public DateTimeOffset? CreatedAt { get; set; }
 
+    [JsonPropertyName("external_game_source")]
+    [JsonProperty("external_game_source")]
+    public long ExternalGameSource { get; set; }
+
+    [JsonPropertyName("game_release_format")]
+    [JsonProperty("game_release_format")]
+    public long GameReleaseFormat { get; set; }
+
     [JsonPropertyName("game")]
     [JsonProperty("game")]
     public long Game { get; set; }
@@ -30,10 +34,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonPropertyName("id")]
     [JsonProperty("id")]
     public long? Id { get; set; }
-
-    [JsonPropertyName("media")]
-    [JsonProperty("media")]
-    public ExternalGameMedia? Media { get; set; }
 
     [JsonPropertyName("name")]
     [JsonProperty("name")]
@@ -58,36 +58,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonPropertyName("year")]
     [JsonProperty("year")]
     public int? Year { get; set; }
-  }
-
-  public enum ExternalGameMedia
-  {
-    Digital = 1,
-    Physical = 2
-  }
-
-  public enum ExternalCategory
-  {
-    Steam = 1,
-    GOG = 5,
-    YouTube = 10,
-    Microsoft = 11,
-    Apple = 13,
-    Twitch = 14,
-    Android = 15,
-    AmazonAsin = 20,
-    AmazonLuna = 22,
-    AmazonAdg = 23,
-    EpicGameStore = 26,
-    Oculus = 28,
-    Utomik = 29,
-    ItchIO = 30,
-    XboxMarketplace = 31,
-    Kartridge = 32,
-    PlaystationStoreUS = 36,
-    FocusEntertainment = 37,
-    XboxGamePassUltimateCloud = 54,
-    Gamejolt = 55
   }
 }
 

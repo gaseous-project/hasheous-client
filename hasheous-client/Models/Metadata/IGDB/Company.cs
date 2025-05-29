@@ -11,9 +11,9 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("change_date")]
     public DateTimeOffset? ChangeDate { get; set; }
 
-    [JsonPropertyName("change_date_category")]
-    [JsonProperty("change_date_category")]
-    public ChangeDateCategory ChangeDateCategory { get; set; }
+    [JsonPropertyName("change_date_format")]
+    [JsonProperty("change_date_format")]
+    public long ChangeDateFormat { get; set; }
 
     [JsonPropertyName("changed_company_id")]
     [JsonProperty("changed_company_id")]
@@ -71,9 +71,13 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("start_date")]
     public DateTimeOffset? StartDate { get; set; }
 
-    [JsonPropertyName("start_date_category")]
-    [JsonProperty("start_date_category")]
-    public StartDateCategory? StartDateCategory { get; set; }
+    [JsonPropertyName("start_date_format")]
+    [JsonProperty("start_date_format")]
+    public long? StartDateFormat { get; set; }
+
+    [JsonPropertyName("status")]
+    [JsonProperty("status")]
+    public long Status { get; set; }
 
     [JsonPropertyName("updated_at")]
     [JsonProperty("updated_at")]
@@ -87,30 +91,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("websites")]
     public List<long> Websites { get; set; }
 
-  }
-
-  public enum ChangeDateCategory
-  {
-    YYYYMMMMDD = 0,
-    YYYYMMMM = 1,
-    YYYY = 2,
-    YYYYQ1 = 3,
-    YYYYQ2 = 4,
-    YYYYQ3 = 5,
-    YYYYQ4 = 6,
-    TBD = 7
-  }
-
-  public enum StartDateCategory
-  {
-    YYYYMMMMDD = 0,
-    YYYYMMMM = 1,
-    YYYY = 2,
-    YYYYQ1 = 3,
-    YYYYQ2 = 4,
-    YYYYQ3 = 5,
-    YYYYQ4 = 6,
-    TBD = 7
   }
 }
 

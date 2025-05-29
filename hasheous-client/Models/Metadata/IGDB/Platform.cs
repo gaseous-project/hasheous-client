@@ -15,10 +15,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("alternative_name")]
     public string AlternativeName { get; set; }
 
-    [JsonPropertyName("category")]
-    [JsonProperty("category")]
-    public PlatformCategory? Category { get; set; }
-
     [JsonPropertyName("checksum")]
     [JsonProperty("checksum")]
     public string Checksum { get; set; }
@@ -47,6 +43,10 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("platform_logo")]
     public long PlatformLogo { get; set; }
 
+    [JsonPropertyName("platform_type")]
+    [JsonProperty("platform_type")]
+    public long PlatformType { get; set; }
+
     [JsonPropertyName("slug")]
     [JsonProperty("slug")]
     public string Slug { get; set; }
@@ -70,16 +70,6 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonPropertyName("websites")]
     [JsonProperty("websites")]
     public List<long> Websites { get; set; }
-  }
-
-  public enum PlatformCategory
-  {
-    Console = 1,
-    Arcade = 2,
-    Platform = 3,
-    OperatingSystem = 4,
-    PortableConsole = 5,
-    Computer = 6
   }
 }
 

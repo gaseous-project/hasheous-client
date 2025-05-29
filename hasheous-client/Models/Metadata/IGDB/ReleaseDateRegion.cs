@@ -3,17 +3,26 @@ using Newtonsoft.Json;
 
 namespace HasheousClient.Models.Metadata.IGDB
 {
-  public enum ReleaseDateRegion
+  public class ReleaseDateRegion : ITools, IIdentifier, IHasChecksum
   {
-    Europe = 1,
-    NorthAmerica = 2,
-    Australia = 3,
-    NewZealand = 4,
-    Japan = 5,
-    China = 6,
-    Asia = 7,
-    Worldwide = 8,
-    Korea = 9,
-    Brazil = 10
+    [JsonPropertyName("checksum")]
+    [JsonProperty("checksum")]
+    public string Checksum { get; set; }
+
+    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+    public long? Id { get; set; }
+
+    [JsonPropertyName("region")]
+    [JsonProperty("region")]
+    public string Region { get; set; }
+
+    [JsonPropertyName("created_at")]
+    [JsonProperty("created_at")]
+    public DateTimeOffset? CreatedAt { get; set; }
+
+    [JsonPropertyName("updated_at")]
+    [JsonProperty("updated_at")]
+    public DateTimeOffset? UpdatedAt { get; set; }
   }
 }
