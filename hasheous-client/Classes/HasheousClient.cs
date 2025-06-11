@@ -616,7 +616,7 @@ namespace HasheousClient
                         case "Game":
                         case "GamesByGameID":
                             endpointName = "Games/ByGameID";
-                            queryString = $"&fields={Uri.EscapeDataString("players,publishers,genres,overview,last_updated,rating,platform,coop,youtube,os,processor,ram,hdd,video,sound,alternates&include=boxart,platform")}";
+                            queryString = $"&fields={Uri.EscapeDataString("players,publishers,genres,overview,last_updated,rating,platform,coop,youtube,os,processor,ram,hdd,video,sound,alternates")}&include={Uri.EscapeDataString("boxart,platform")}";
                             if (id == null)
                             {
                                 throw new ArgumentNullException(nameof(id), "ID is required for TheGamesDb");

@@ -47,7 +47,7 @@ for (int i = 0; i < platforms.Count; i++)
 //     Console.WriteLine(outString);
 // }
 
-Dictionary<string, object> metadataProxy = hasheous.GetMetadataProxy<Dictionary<string, object>>("Game", HasheousClient.Hasheous.MetadataProvider.TheGamesDb, 160);
+Dictionary<string, object> metadataProxy = hasheous.GetMetadataProxy<Dictionary<string, object>>("Game", HasheousClient.Hasheous.MetadataProvider.TheGamesDb, 6444);
 if (metadataProxy != null)
 {
     Newtonsoft.Json.JsonSerializerSettings jsonSerializerSettings = new Newtonsoft.Json.JsonSerializerSettings
