@@ -23,7 +23,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("type")]
     [JsonProperty("type")]
-    public string Type { get; set; }
+    public long Type { get; set; }
 
     [JsonPropertyName("url")]
     [JsonProperty("url")]
