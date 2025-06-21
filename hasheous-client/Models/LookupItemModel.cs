@@ -85,7 +85,32 @@ namespace HasheousClient.Models
         /// <summary>
         /// OpenVGDB - queries the RetroAchievements service for metadata
         /// </summary>
-        RetroAchievements
+        RetroAchievements,
+
+        /// <summary>
+        /// GiantBomb - queries GiantBomb service for metadata
+        /// </summary>
+        GiantBomb,
+
+        /// <summary>
+        /// Steam - queries Steam service for metadata
+        /// </summary>
+        Steam,
+
+        /// <summary>
+        /// GOG - queries GOG service for metadata
+        /// </summary>
+        GOG,
+
+        /// <summary>
+        /// EpicGameStore - queries Epic Game Store service for metadata
+        /// </summary>
+        EpicGameStore,
+
+        /// <summary>
+        /// Wikipedia - queries Wikipedia service for metadata
+        /// </summary>
+        Wikipedia
     }
 
     /// <summary>
