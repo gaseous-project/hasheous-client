@@ -11,7 +11,7 @@ Console.WriteLine("Fetching data from Hasheous...");
 LookupItemModel? HasheousResult = hasheous.RetrieveFromHasheous(new HashLookupModel
 {
     MD5 = "cff69b70a8ad674a0efe5558765855c9"
-}, true);
+}, "TOSEC, MAMEArcade, MAMEMess, NoIntros, Redump, WHDLoad, RetroAchievements, FBNeo");
 
 if (HasheousResult != null)
 {

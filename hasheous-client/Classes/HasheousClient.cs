@@ -34,12 +34,48 @@ namespace HasheousClient
         /// <param name="hash">
         /// The hash to lookup
         /// </param>
+        /// <param name="sourceList">
+        /// The comma separated list of sources to return
+        /// </param>
+        /// <returns>
+        /// The lookup item
+        /// </returns>
+        public LookupItemModel RetrieveFromHasheous(HashLookupModel hash, string sourceList)
+        {
+            Task<LookupItemModel> result = _RetrieveFromHasheousAsync(hash, sourceList);
+
+            return result.Result;
+        }
+
+        /// <summary>
+        /// Retrieve a lookup item from Hasheous
+        /// </summary>
+        /// <param name="hash">
+        /// The hash to lookup
+        /// </param>
         /// <returns>
         /// The lookup item
         /// </returns>
         public async Task<LookupItemModel> RetrieveFromHasheousAsync(HashLookupModel hash, bool returnAllSources)
         {
             return await _RetrieveFromHasheousAsync(hash, returnAllSources);
+        }
+
+        /// <summary>
+        /// Retrieve a lookup item from Hasheous
+        /// </summary>
+        /// <param name="hash">
+        /// The hash to lookup
+        /// </param>
+        /// <param name="sourceList">
+        /// The comma separated list of sources to return
+        /// </param>
+        /// <returns>
+        /// The lookup item
+        /// </returns>
+        public async Task<LookupItemModel> RetrieveFromHasheousAsync(HashLookupModel hash, string sourceList)
+        {
+            return await _RetrieveFromHasheousAsync(hash, sourceList);
         }
 
         /// <summary>
@@ -567,7 +603,30 @@ namespace HasheousClient
 
         private static async Task<LookupItemModel> _RetrieveFromHasheousAsync(HashLookupModel hashLookup, bool returnAllSources)
         {
-            var result = await HasheousClient.WebApp.HttpHelper.Post<LookupItemModel>($"/api/v1/Lookup/ByHash?returnAllSources=" + returnAllSources.ToString(), hashLookup);
+            string sourceList = "returnAllSources=" + returnAllSources.ToString();
+            if (returnAllSources)
+            {
+                var sb = new System.Text.StringBuilder("returnSources=");
+                foreach (string source in Enum.GetNames(typeof(SignatureModel.RomItem.SignatureSourceType)))
+                {
+                    if (source != "None")
+                    {
+                        sb.Append(source).Append(",");
+                    }
+                }
+                sourceList = sb.ToString();
+            }
+
+            sourceList = sourceList.TrimEnd(',');
+
+            var result = await HasheousClient.WebApp.HttpHelper.Post<LookupItemModel>($"/api/v1/Lookup/ByHash?{sourceList}", hashLookup);
+
+            return result;
+        }
+
+        private static async Task<LookupItemModel> _RetrieveFromHasheousAsync(HashLookupModel hashLookup, string sourceList)
+        {
+            var result = await HasheousClient.WebApp.HttpHelper.Post<LookupItemModel>($"/api/v1/Lookup/ByHash?{sourceList}", hashLookup);
 
             return result;
         }
