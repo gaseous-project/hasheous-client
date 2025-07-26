@@ -23,7 +23,7 @@ namespace HasheousClient.Models
         /// <summary>
         /// The metadata source provider
         /// </summary>
-        public MetadataSources Source { get; set; }
+        public string Source { get; set; }
 
         /// <summary>
         /// A link to the metadata source
