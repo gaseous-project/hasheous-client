@@ -79,7 +79,12 @@ namespace HasheousClient.Models
                 MAMEMess = 3,
                 NoIntros = 4,
                 Redump = 5,
-                WHDLoad = 6
+                WHDLoad = 6,
+                RetroAchievements = 7,
+                FBNeo = 8,
+                PureDOSDAT = 9,
+                Pleasuredome = 10,
+                Generic = 99
             }
 
             public class MediaType
