@@ -86,7 +86,10 @@ namespace HasheousClient.WebApp
 
             // Deserialize the updated product from the response body.
             var resultStr = await response.Content.ReadAsStringAsync();
-            var resultObject = JsonConvert.DeserializeObject<T>(resultStr);
+            var resultObject = JsonConvert.DeserializeObject<T>(resultStr, new JsonSerializerSettings
+            {
+                Converters = { new SafeEnumConverter() }
+            });
             if (resultObject == null)
             {
                 throw new InvalidOperationException("Deserialization returned null for type " + typeof(T).FullName);
@@ -110,13 +113,63 @@ namespace HasheousClient.WebApp
             {
                 MaxDepth = 8,
                 ObjectCreationHandling = ObjectCreationHandling.Auto,
-                CheckAdditionalContent = true
+                CheckAdditionalContent = true,
+                Converters = { new SafeEnumConverter() }
             });
             if (resultObject == null)
             {
                 throw new InvalidOperationException("Deserialization returned null for type " + typeof(T).FullName);
             }
             return resultObject;
+        }
+
+        // Custom converter to handle unknown enum values
+        public class SafeEnumConverter : JsonConverter
+        {
+            public override bool CanConvert(Type objectType)
+            {
+                var t = Nullable.GetUnderlyingType(objectType) ?? objectType;
+                return t.IsEnum;
+            }
+
+            public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
+            {
+                var isNullable = Nullable.GetUnderlyingType(objectType) != null;
+                var enumType = Nullable.GetUnderlyingType(objectType) ?? objectType;
+                try
+                {
+                    if (reader.TokenType == JsonToken.String)
+                    {
+                        var enumText = reader.Value?.ToString();
+                        if (Enum.TryParse(enumType, enumText, true, out var enumValue))
+                        {
+                            return enumValue;
+                        }
+                    }
+                    else if (reader.TokenType == JsonToken.Integer)
+                    {
+                        var intValue = Convert.ToInt32(reader.Value);
+                        if (Enum.IsDefined(enumType, intValue))
+                        {
+                            return Enum.ToObject(enumType, intValue);
+                        }
+                    }
+                }
+                catch { }
+
+                // Fallback to Unknown if present, else default
+                var names = Enum.GetNames(enumType);
+                if (names.Contains("Unknown"))
+                {
+                    return Enum.Parse(enumType, "Unknown");
+                }
+                return isNullable ? null : Activator.CreateInstance(enumType);
+            }
+
+            public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
+            {
+                writer.WriteValue(value?.ToString());
+            }
         }
     }
 }

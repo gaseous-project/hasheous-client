@@ -138,7 +138,7 @@ namespace HasheousClient
         /// <typeparam name="T">
         /// The type of metadata to retrieve
         /// </typeparam>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="id">
@@ -147,11 +147,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T GetMetadataProxy<T>(MetadataProvider metadataProvider, long? id)
+        public T GetMetadataProxy<T>(MetadataSources MetadataSources, long? id)
         {
             string TypeName = typeof(T).Name;
 
-            Task<T> result = _GetMetadataProxy<T>(TypeName, metadataProvider, id);
+            Task<T> result = _GetMetadataProxy<T>(TypeName, MetadataSources, id);
 
             return result.Result;
         }
@@ -165,7 +165,7 @@ namespace HasheousClient
         /// <param name="TypeName">
         /// The name of the type of metadata to load
         /// </param>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="id">
@@ -174,9 +174,9 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, long? id)
+        public T GetMetadataProxy<T>(string TypeName, MetadataSources MetadataSources, long? id)
         {
-            Task<T> result = _GetMetadataProxy<T>(TypeName, metadataProvider, id);
+            Task<T> result = _GetMetadataProxy<T>(TypeName, MetadataSources, id);
 
             return result.Result;
         }
@@ -187,7 +187,7 @@ namespace HasheousClient
         /// <typeparam name="T">
         /// The type to load the metadata into
         /// </typeparam>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="slug">
@@ -196,11 +196,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T GetMetadataProxy<T>(MetadataProvider metadataProvider, string slug)
+        public T GetMetadataProxy<T>(MetadataSources MetadataSources, string slug)
         {
-            switch (metadataProvider)
+            switch (MetadataSources)
             {
-                case MetadataProvider.TheGamesDb:
+                case MetadataSources.TheGamesDb:
                     throw new NotSupportedException(TheGamesDbSlugNotSupportedMessage);
                 default:
                     break;
@@ -208,7 +208,7 @@ namespace HasheousClient
 
             string TypeName = typeof(T).Name;
 
-            Task<T> result = _GetMetadataProxy<T>(TypeName, metadataProvider, slug);
+            Task<T> result = _GetMetadataProxy<T>(TypeName, MetadataSources, slug);
 
             return result.Result;
         }
@@ -222,7 +222,7 @@ namespace HasheousClient
         /// <param name="TypeName">
         /// The name of the type of metadata to load
         /// </param>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="slug">
@@ -231,17 +231,17 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, string slug)
+        public T GetMetadataProxy<T>(string TypeName, MetadataSources MetadataSources, string slug)
         {
-            switch (metadataProvider)
+            switch (MetadataSources)
             {
-                case MetadataProvider.TheGamesDb:
+                case MetadataSources.TheGamesDb:
                     throw new NotSupportedException(TheGamesDbSlugNotSupportedMessage);
                 default:
                     break;
             }
 
-            Task<T> result = _GetMetadataProxy<T>(TypeName, metadataProvider, slug);
+            Task<T> result = _GetMetadataProxy<T>(TypeName, MetadataSources, slug);
 
             return result.Result;
         }
@@ -252,7 +252,7 @@ namespace HasheousClient
         /// <typeparam name="T">
         /// The type of metadata to retrieve
         /// </typeparam>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="id">
@@ -261,11 +261,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public async Task<T> GetMetadataProxyAsync<T>(MetadataProvider metadataProvider, long? id)
+        public async Task<T> GetMetadataProxyAsync<T>(MetadataSources MetadataSources, long? id)
         {
             string TypeName = typeof(T).Name;
 
-            return await _GetMetadataProxy<T>(TypeName, metadataProvider, id);
+            return await _GetMetadataProxy<T>(TypeName, MetadataSources, id);
         }
 
         /// <summary>
@@ -277,7 +277,7 @@ namespace HasheousClient
         /// <param name="TypeName">
         /// The name of the type of metadata to load
         /// </param>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="id">
@@ -286,9 +286,9 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public async Task<T> GetMetadataProxyAsync<T>(string TypeName, MetadataProvider metadataProvider, long? id)
+        public async Task<T> GetMetadataProxyAsync<T>(string TypeName, MetadataSources MetadataSources, long? id)
         {
-            return await _GetMetadataProxy<T>(TypeName, metadataProvider, id);
+            return await _GetMetadataProxy<T>(TypeName, MetadataSources, id);
         }
 
         /// <summary>
@@ -297,7 +297,7 @@ namespace HasheousClient
         /// <typeparam name="T">
         /// The type to load the metadata into
         /// </typeparam>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="slug">
@@ -306,11 +306,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public async Task<T> GetMetadataProxyAsync<T>(MetadataProvider metadataProvider, string slug)
+        public async Task<T> GetMetadataProxyAsync<T>(MetadataSources MetadataSources, string slug)
         {
-            switch (metadataProvider)
+            switch (MetadataSources)
             {
-                case MetadataProvider.TheGamesDb:
+                case MetadataSources.TheGamesDb:
                     throw new NotSupportedException(TheGamesDbSlugNotSupportedMessage);
                 default:
                     break;
@@ -318,7 +318,7 @@ namespace HasheousClient
 
             string TypeName = typeof(T).Name;
 
-            return await _GetMetadataProxy<T>(TypeName, metadataProvider, slug);
+            return await _GetMetadataProxy<T>(TypeName, MetadataSources, slug);
         }
 
         /// <summary>
@@ -330,7 +330,7 @@ namespace HasheousClient
         /// <param name="TypeName">
         /// The name of the type of metadata to load
         /// </param>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="slug">
@@ -339,17 +339,17 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public async Task<T> GetMetadataProxyAsync<T>(string TypeName, MetadataProvider metadataProvider, string slug)
+        public async Task<T> GetMetadataProxyAsync<T>(string TypeName, MetadataSources MetadataSources, string slug)
         {
-            switch (metadataProvider)
+            switch (MetadataSources)
             {
-                case MetadataProvider.TheGamesDb:
+                case MetadataSources.TheGamesDb:
                     throw new NotSupportedException(TheGamesDbSlugNotSupportedMessage);
                 default:
                     break;
             }
 
-            return await _GetMetadataProxy<T>(TypeName, metadataProvider, slug);
+            return await _GetMetadataProxy<T>(TypeName, MetadataSources, slug);
         }
 
         /// <summary>
@@ -358,7 +358,7 @@ namespace HasheousClient
         /// <typeparam name="T">
         /// The type to load the metadata into
         /// </typeparam>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="search">
@@ -367,13 +367,13 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T[]? GetMetadataProxy_SearchPlatform<T>(MetadataProvider metadataProvider, string search)
+        public T[]? GetMetadataProxy_SearchPlatform<T>(MetadataSources MetadataSources, string search)
         {
             string TypeName = typeof(T).Name.Replace("[]", "");
 
-            if (metadataProvider == MetadataProvider.IGDB)
+            if (MetadataSources == MetadataSources.IGDB)
             {
-                Task<T[]> result = _GetMetadataProxy_SearchPlatform<T>(TypeName, metadataProvider, search);
+                Task<T[]> result = _GetMetadataProxy_SearchPlatform<T>(TypeName, MetadataSources, search);
 
                 return result.Result;
             }
@@ -390,7 +390,7 @@ namespace HasheousClient
         /// <param name="TypeName">
         /// The name of the type of metadata to load
         /// </param>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="search">
@@ -399,11 +399,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T[]? GetMetadataProxy_SearchPlatform<T>(string TypeName, MetadataProvider metadataProvider, string search)
+        public T[]? GetMetadataProxy_SearchPlatform<T>(string TypeName, MetadataSources MetadataSources, string search)
         {
-            if (metadataProvider == MetadataProvider.IGDB)
+            if (MetadataSources == MetadataSources.IGDB)
             {
-                Task<T[]> result = _GetMetadataProxy_SearchPlatform<T>(TypeName, metadataProvider, search);
+                Task<T[]> result = _GetMetadataProxy_SearchPlatform<T>(TypeName, MetadataSources, search);
 
                 return result.Result;
             }
@@ -417,7 +417,7 @@ namespace HasheousClient
         /// <typeparam name="T">
         /// The type to load the metadata into
         /// </typeparam>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="search">
@@ -426,13 +426,13 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public async Task<T[]?> GetMetadataProxy_SearchPlatformAsync<T>(MetadataProvider metadataProvider, string search)
+        public async Task<T[]?> GetMetadataProxy_SearchPlatformAsync<T>(MetadataSources MetadataSources, string search)
         {
             string TypeName = typeof(T).Name.Replace("[]", "");
 
-            if (metadataProvider == MetadataProvider.IGDB)
+            if (MetadataSources == MetadataSources.IGDB)
             {
-                return await _GetMetadataProxy_SearchPlatform<T>(TypeName, metadataProvider, search);
+                return await _GetMetadataProxy_SearchPlatform<T>(TypeName, MetadataSources, search);
             }
 
             return default;
@@ -447,7 +447,7 @@ namespace HasheousClient
         /// <param name="TypeName">
         /// The name of the type of metadata to load
         /// </param>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="search">
@@ -456,11 +456,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public async Task<T[]?> GetMetadataProxy_SearchPlatformAsync<T>(string TypeName, MetadataProvider metadataProvider, string search)
+        public async Task<T[]?> GetMetadataProxy_SearchPlatformAsync<T>(string TypeName, MetadataSources MetadataSources, string search)
         {
-            if (metadataProvider == MetadataProvider.IGDB)
+            if (MetadataSources == MetadataSources.IGDB)
             {
-                return await _GetMetadataProxy_SearchPlatform<T>(TypeName, metadataProvider, search);
+                return await _GetMetadataProxy_SearchPlatform<T>(TypeName, MetadataSources, search);
             }
 
             return default;
@@ -472,7 +472,7 @@ namespace HasheousClient
         /// <typeparam name="T">
         /// The type to load the metadata into
         /// </typeparam>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="platformId">
@@ -484,13 +484,13 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T[]? GetMetadataProxy_SearchGame<T>(MetadataProvider metadataProvider, string platformId, string search)
+        public T[]? GetMetadataProxy_SearchGame<T>(MetadataSources MetadataSources, string platformId, string search)
         {
             string TypeName = typeof(T).Name.Replace("[]", "");
 
-            if (metadataProvider == MetadataProvider.IGDB)
+            if (MetadataSources == MetadataSources.IGDB)
             {
-                Task<T[]> result = _GetMetadataProxy_SearchGame<T>(TypeName, metadataProvider, platformId, search);
+                Task<T[]> result = _GetMetadataProxy_SearchGame<T>(TypeName, MetadataSources, platformId, search);
 
                 return result.Result;
             }
@@ -507,7 +507,7 @@ namespace HasheousClient
         /// <param name="TypeName">
         /// The name of the type of metadata to load
         /// </param>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="platformId">
@@ -519,11 +519,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public T[]? GetMetadataProxy_SearchGame<T>(string TypeName, MetadataProvider metadataProvider, string platformId, string search)
+        public T[]? GetMetadataProxy_SearchGame<T>(string TypeName, MetadataSources MetadataSources, string platformId, string search)
         {
-            if (metadataProvider == MetadataProvider.IGDB)
+            if (MetadataSources == MetadataSources.IGDB)
             {
-                Task<T[]> result = _GetMetadataProxy_SearchGame<T>(TypeName, metadataProvider, platformId, search);
+                Task<T[]> result = _GetMetadataProxy_SearchGame<T>(TypeName, MetadataSources, platformId, search);
 
                 return result.Result;
             }
@@ -537,7 +537,7 @@ namespace HasheousClient
         /// <typeparam name="T">
         /// The type to load the metadata into
         /// </typeparam>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="platformId">
@@ -549,13 +549,13 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public async Task<T[]?> GetMetadataProxy_SearchGameAsync<T>(MetadataProvider metadataProvider, string platformId, string search)
+        public async Task<T[]?> GetMetadataProxy_SearchGameAsync<T>(MetadataSources MetadataSources, string platformId, string search)
         {
             string TypeName = typeof(T).Name.Replace("[]", "");
 
-            if (metadataProvider == MetadataProvider.IGDB)
+            if (MetadataSources == MetadataSources.IGDB)
             {
-                return await _GetMetadataProxy_SearchGame<T>(TypeName, metadataProvider, platformId, search);
+                return await _GetMetadataProxy_SearchGame<T>(TypeName, MetadataSources, platformId, search);
             }
 
             return default;
@@ -570,7 +570,7 @@ namespace HasheousClient
         /// <param name="TypeName">
         /// The name of the type of metadata to load
         /// </param>
-        /// <param name="metadataProvider">
+        /// <param name="MetadataSources">
         /// The metadata provider to use
         /// </param>
         /// <param name="platformId">
@@ -582,11 +582,11 @@ namespace HasheousClient
         /// <returns>
         /// The metadata from the provider
         /// </returns>
-        public async Task<T[]?> GetMetadataProxy_SearchGameAsync<T>(string TypeName, MetadataProvider metadataProvider, string platformId, string search)
+        public async Task<T[]?> GetMetadataProxy_SearchGameAsync<T>(string TypeName, MetadataSources MetadataSources, string platformId, string search)
         {
-            if (metadataProvider == MetadataProvider.IGDB)
+            if (MetadataSources == MetadataSources.IGDB)
             {
-                return await _GetMetadataProxy_SearchGame<T>(TypeName, metadataProvider, platformId, search);
+                return await _GetMetadataProxy_SearchGame<T>(TypeName, MetadataSources, platformId, search);
             }
 
             return default;
@@ -658,17 +658,17 @@ namespace HasheousClient
             }
         }
 
-        private static async Task<T> _GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, long? id)
+        private static async Task<T> _GetMetadataProxy<T>(string TypeName, MetadataSources MetadataSources, long? id)
         {
             string endpointName = TypeName;
             string queryString = "";
             bool lowerCaseId = false;
 
-            // if the metadataProvider is IGDB, just pass it through
-            // if the metadataProvider is TheGamesDB, we need to change the endpoint name
-            switch (metadataProvider)
+            // if the MetadataSources is IGDB, just pass it through
+            // if the MetadataSources is TheGamesDB, we need to change the endpoint name
+            switch (MetadataSources)
             {
-                case MetadataProvider.TheGamesDb:
+                case MetadataSources.TheGamesDb:
                     lowerCaseId = true;
                     switch (TypeName)
                     {
@@ -747,7 +747,7 @@ namespace HasheousClient
                 urlQueryString = "?" + urlQueryString;
             }
 
-            string urlString = $"/api/v1/MetadataProxy/{metadataProvider}/{endpointName}{urlQueryString}";
+            string urlString = $"/api/v1/MetadataProxy/{MetadataSources}/{endpointName}{urlQueryString}";
             Console.WriteLine(urlString);
 
             var result = await HasheousClient.WebApp.HttpHelper.Get<T>(urlString);
@@ -755,18 +755,18 @@ namespace HasheousClient
             return result;
         }
 
-        private static async Task<T> _GetMetadataProxy<T>(string TypeName, MetadataProvider metadataProvider, string slug)
+        private static async Task<T> _GetMetadataProxy<T>(string TypeName, MetadataSources MetadataSources, string slug)
         {
-            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{metadataProvider}/{TypeName}?slug={slug}");
+            var result = await HasheousClient.WebApp.HttpHelper.Get<T>($"/api/v1/MetadataProxy/{MetadataSources}/{TypeName}?slug={slug}");
 
             return result;
         }
 
-        private static async Task<T[]> _GetMetadataProxy_SearchPlatform<T>(string TypeName, MetadataProvider metadataProvider, string search)
+        private static async Task<T[]> _GetMetadataProxy_SearchPlatform<T>(string TypeName, MetadataSources MetadataSources, string search)
         {
             if (TypeName == "Platform")
             {
-                var result = await HasheousClient.WebApp.HttpHelper.Get<T[]>($"/api/v1/MetadataProxy/{metadataProvider}/Search/{TypeName}?SearchString={search}");
+                var result = await HasheousClient.WebApp.HttpHelper.Get<T[]>($"/api/v1/MetadataProxy/{MetadataSources}/Search/{TypeName}?SearchString={search}");
 
                 return result;
             }
@@ -776,19 +776,11 @@ namespace HasheousClient
             }
         }
 
-        private static async Task<T[]> _GetMetadataProxy_SearchGame<T>(string TypeName, MetadataProvider metadataProvider, string platformId, string search)
+        private static async Task<T[]> _GetMetadataProxy_SearchGame<T>(string TypeName, MetadataSources MetadataSources, string platformId, string search)
         {
-            var result = await HasheousClient.WebApp.HttpHelper.Get<T[]>($"/api/v1/MetadataProxy/{metadataProvider}/Search/Platform/{platformId}/{TypeName}?SearchString={search}");
+            var result = await HasheousClient.WebApp.HttpHelper.Get<T[]>($"/api/v1/MetadataProxy/{MetadataSources}/Search/Platform/{platformId}/{TypeName}?SearchString={search}");
 
             return result;
-        }
-
-        public enum MetadataProvider
-        {
-            None,
-            IGDB,
-            TheGamesDb,
-            RetroAchievements
         }
     }
     #endregion Private Methods

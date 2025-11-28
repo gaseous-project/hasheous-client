@@ -10,7 +10,8 @@ namespace HasheousClient.Models
             ImageId = 3,
             ImageAttribution = 4,
             ObjectRelationship = 10,
-            EmbeddedList = 11
+            EmbeddedList = 11,
+            Unknown = 10000
         }
 
         public enum AttributeName
@@ -26,7 +27,18 @@ namespace HasheousClient.Models
             ROMs = 8,
             VIMMManualId = 9,
             LogoAttribution = 10,
-            VIMMPlatformName = 11
+            VIMMPlatformName = 11,
+            HomePage = 12,
+            IssueTracker = 13,
+            Screenshot1 = 14,
+            Screenshot2 = 15,
+            Screenshot3 = 16,
+            Screenshot4 = 17,
+            Wikipedia = 18,
+            Public = 19,
+            DumpFile = 20,
+            Tags = 21,
+            Unknown = 10000
         }
 
         public long? Id { get; set; }

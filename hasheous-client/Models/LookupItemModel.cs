@@ -110,7 +110,12 @@ namespace HasheousClient.Models
         /// <summary>
         /// Wikipedia - queries Wikipedia service for metadata
         /// </summary>
-        Wikipedia
+        Wikipedia,
+
+        /// <summary>
+        /// Unknown source
+        /// </summary>
+        Unknown
     }
 
     /// <summary>

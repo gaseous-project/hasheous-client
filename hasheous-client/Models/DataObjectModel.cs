@@ -26,6 +26,7 @@ namespace HasheousClient.Models
         Platform = 1,
         Game = 2,
         ROM = 3,
-        None = 100
+        None = 100,
+        Unknown = 10000
     }
 }
