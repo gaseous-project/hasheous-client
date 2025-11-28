@@ -84,7 +84,8 @@ namespace HasheousClient.Models
                 FBNeo = 8,
                 PureDOSDAT = 9,
                 Pleasuredome = 10,
-                Generic = 99
+                Generic = 99,
+                Unknown = 100
             }
 
             public class MediaType
