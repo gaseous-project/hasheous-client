@@ -13,7 +13,7 @@ namespace HasheousClient.Models.Metadata.IGDB
 
     [JsonPropertyName("countries")]
     [JsonProperty("countries")]
-    public double[] Countries { get; set; }
+    public List<long> Countries { get; set; }
 
     [JsonPropertyName("created_at")]
     [JsonProperty("created_at")]
