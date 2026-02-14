@@ -9,6 +9,8 @@ namespace HasheousClient.Models
             DateTime = 2,
             ImageId = 3,
             ImageAttribution = 4,
+            Link = 5,
+            Boolean = 6,
             ObjectRelationship = 10,
             EmbeddedList = 11,
             Unknown = 10000
@@ -38,6 +40,7 @@ namespace HasheousClient.Models
             Public = 19,
             DumpFile = 20,
             Tags = 21,
+            AIDescription = 22,
             Unknown = 10000
         }
 

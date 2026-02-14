@@ -9,7 +9,7 @@ namespace HasheousClient.Models.Metadata.IGDB
   {
     [JsonPropertyName("akas")]
     [JsonProperty("akas")]
-    public string[] Akas { get; set; }
+    public List<string> Akas { get; set; }
 
     [JsonPropertyName("character_gender")]
     [JsonProperty("character_gender")]
