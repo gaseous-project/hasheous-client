@@ -34,7 +34,7 @@
 
   <ItemGroup>
     <PackageReference Include="gaseous-signature-parser" Version="2.5.3" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.201" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.203" PrivateAssets="all" />
     <PackageReference Include="gaseous.IGDB" Version="1.0.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="System.Text.Json" Version="10.0.5" />
