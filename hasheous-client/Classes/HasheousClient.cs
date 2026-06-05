@@ -21,7 +21,7 @@ namespace HasheousClient
         /// <returns>
         /// The lookup item
         /// </returns>
-        public LookupItemModel RetrieveFromHasheous(HashLookupModel hash, bool returnAllSources)
+        public LookupItemModel RetrieveFromHasheous(List<HashLookupModel> hash, bool returnAllSources)
         {
             Task<LookupItemModel> result = _RetrieveFromHasheousAsync(hash, returnAllSources);
 
@@ -40,7 +40,7 @@ namespace HasheousClient
         /// <returns>
         /// The lookup item
         /// </returns>
-        public LookupItemModel RetrieveFromHasheous(HashLookupModel hash, string sourceList)
+        public LookupItemModel RetrieveFromHasheous(List<HashLookupModel> hash, string sourceList)
         {
             Task<LookupItemModel> result = _RetrieveFromHasheousAsync(hash, sourceList);
 
@@ -56,7 +56,7 @@ namespace HasheousClient
         /// <returns>
         /// The lookup item
         /// </returns>
-        public async Task<LookupItemModel> RetrieveFromHasheousAsync(HashLookupModel hash, bool returnAllSources)
+        public async Task<LookupItemModel> RetrieveFromHasheousAsync(List<HashLookupModel> hash, bool returnAllSources)
         {
             return await _RetrieveFromHasheousAsync(hash, returnAllSources);
         }
@@ -73,7 +73,7 @@ namespace HasheousClient
         /// <returns>
         /// The lookup item
         /// </returns>
-        public async Task<LookupItemModel> RetrieveFromHasheousAsync(HashLookupModel hash, string sourceList)
+        public async Task<LookupItemModel> RetrieveFromHasheousAsync(List<HashLookupModel> hash, string sourceList)
         {
             return await _RetrieveFromHasheousAsync(hash, sourceList);
         }
@@ -601,7 +601,7 @@ namespace HasheousClient
             return result;
         }
 
-        private static async Task<LookupItemModel> _RetrieveFromHasheousAsync(HashLookupModel hashLookup, bool returnAllSources)
+        private static async Task<LookupItemModel> _RetrieveFromHasheousAsync(List<HashLookupModel> hashLookup, bool returnAllSources)
         {
             string sourceList = "returnAllSources=" + returnAllSources.ToString();
             if (returnAllSources)
@@ -624,7 +624,7 @@ namespace HasheousClient
             return result;
         }
 
-        private static async Task<LookupItemModel> _RetrieveFromHasheousAsync(HashLookupModel hashLookup, string sourceList)
+        private static async Task<LookupItemModel> _RetrieveFromHasheousAsync(List<HashLookupModel> hashLookup, string sourceList)
         {
             var result = await HasheousClient.WebApp.HttpHelper.Post<LookupItemModel>($"/api/v1/Lookup/ByHash?{sourceList}", hashLookup);
 
