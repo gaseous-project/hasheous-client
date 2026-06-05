@@ -12,11 +12,84 @@ namespace HasheousClient
         // disables warning about methods should be static as these methods may require instance state in the future
         // and we want to remain backwards compatible
 
+        #region Single Hash
         /// <summary>
         /// Retrieve a lookup item from Hasheous
         /// </summary>
         /// <param name="hash">
         /// The hash to lookup
+        /// </param>
+        /// <returns>
+        /// The lookup item
+        /// </returns>
+        public LookupItemModel RetrieveFromHasheous(HashLookupModel hash, bool returnAllSources)
+        {
+            List<HashLookupModel> hashLookup = new List<HashLookupModel> { hash };
+            Task<LookupItemModel> result = _RetrieveFromHasheousAsync(hashLookup, returnAllSources);
+
+            return result.Result;
+        }
+
+        /// <summary>
+        /// Retrieve a lookup item from Hasheous
+        /// </summary>
+        /// <param name="hash">
+        /// The hash to lookup
+        /// </param>
+        /// <param name="sourceList">
+        /// The comma separated list of sources to return
+        /// </param>
+        /// <returns>
+        /// The lookup item
+        /// </returns>
+        public LookupItemModel RetrieveFromHasheous(HashLookupModel hash, string sourceList)
+        {
+            List<HashLookupModel> hashLookup = new List<HashLookupModel> { hash };
+            Task<LookupItemModel> result = _RetrieveFromHasheousAsync(hashLookup, sourceList);
+
+            return result.Result;
+        }
+
+        /// <summary>
+        /// Retrieve a lookup item from Hasheous
+        /// </summary>
+        /// <param name="hash">
+        /// The hash to lookup
+        /// </param>
+        /// <returns>
+        /// The lookup item
+        /// </returns>
+        public async Task<LookupItemModel> RetrieveFromHasheousAsync(HashLookupModel hash, bool returnAllSources)
+        {
+            List<HashLookupModel> hashLookup = new List<HashLookupModel> { hash };
+            return await _RetrieveFromHasheousAsync(hashLookup, returnAllSources);
+        }
+
+        /// <summary>
+        /// Retrieve a lookup item from Hasheous
+        /// </summary>
+        /// <param name="hash">
+        /// The hash to lookup
+        /// </param>
+        /// <param name="sourceList">
+        /// The comma separated list of sources to return
+        /// </param>
+        /// <returns>
+        /// The lookup item
+        /// </returns>
+        public async Task<LookupItemModel> RetrieveFromHasheousAsync(HashLookupModel hash, string sourceList)
+        {
+            List<HashLookupModel> hashLookup = new List<HashLookupModel> { hash };
+            return await _RetrieveFromHasheousAsync(hashLookup, sourceList);
+        }
+        #endregion Single Hash
+
+        #region Hash Arrays
+        /// <summary>
+        /// Retrieve a lookup item from Hasheous
+        /// </summary>
+        /// <param name="hash">
+        /// The list of hashes to lookup
         /// </param>
         /// <returns>
         /// The lookup item
@@ -32,7 +105,7 @@ namespace HasheousClient
         /// Retrieve a lookup item from Hasheous
         /// </summary>
         /// <param name="hash">
-        /// The hash to lookup
+        /// The list of hashes to lookup
         /// </param>
         /// <param name="sourceList">
         /// The comma separated list of sources to return
@@ -51,7 +124,7 @@ namespace HasheousClient
         /// Retrieve a lookup item from Hasheous
         /// </summary>
         /// <param name="hash">
-        /// The hash to lookup
+        /// The list of hashes to lookup
         /// </param>
         /// <returns>
         /// The lookup item
@@ -65,7 +138,7 @@ namespace HasheousClient
         /// Retrieve a lookup item from Hasheous
         /// </summary>
         /// <param name="hash">
-        /// The hash to lookup
+        /// The list of hashes to lookup
         /// </param>
         /// <param name="sourceList">
         /// The comma separated list of sources to return
@@ -77,6 +150,7 @@ namespace HasheousClient
         {
             return await _RetrieveFromHasheousAsync(hash, sourceList);
         }
+        #endregion Hash Arrays
 
         /// <summary>
         /// Fix a match in Hasheous
