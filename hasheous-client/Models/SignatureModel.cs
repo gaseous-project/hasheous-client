@@ -84,6 +84,9 @@ namespace HasheousClient.Models
                 FBNeo = 8,
                 PureDOSDAT = 9,
                 Pleasuredome = 10,
+                MAMERedump = 11,
+                TotalDOSCollection = 12,
+                ScreenScraper = 98,
                 Generic = 99,
                 Unknown = 100
             }
