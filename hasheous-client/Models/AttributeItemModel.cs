@@ -41,6 +41,7 @@ namespace HasheousClient.Models
             DumpFile = 20,
             Tags = 21,
             AIDescription = 22,
+            SearchAliases = 23,
             Unknown = 10000
         }
 
