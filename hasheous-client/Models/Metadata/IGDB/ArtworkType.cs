@@ -14,6 +14,10 @@ namespace HasheousClient.Models.Metadata.IGDB
         [JsonProperty("created_at")]
         public DateTimeOffset? CreatedAt { get; set; }
 
+        [JsonPropertyName("id")]
+        [JsonProperty("id")]
+        public long? Id { get; set; }
+
         [JsonPropertyName("name")]
         [JsonProperty("name")]
         public string Name { get; set; }
