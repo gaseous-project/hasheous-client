@@ -1,0 +1,29 @@
+using Newtonsoft.Json;
+
+using System.Text.Json.Serialization;
+
+namespace HasheousClient.Models.Metadata.IGDB
+{
+    public class ArtworkType : ITools, IHasChecksum
+    {
+        [JsonPropertyName("checksum")]
+        [JsonProperty("checksum")]
+        public string Checksum { get; set; }
+
+        [JsonPropertyName("created_at")]
+        [JsonProperty("created_at")]
+        public DateTimeOffset? CreatedAt { get; set; }
+
+        [JsonPropertyName("name")]
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("slug")]
+        [JsonProperty("slug")]
+        public string Slug { get; set; }
+
+        [JsonPropertyName("updated_at")]
+        [JsonProperty("updated_at")]
+        public DateTimeOffset? UpdatedAt { get; set; }
+    }
+}
