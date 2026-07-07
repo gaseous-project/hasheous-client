@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace HasheousClient.Models.Metadata.IGDB
 {
-    public class ArtworkType : ITools, IHasChecksum
+    public class ArtworkType : ITools, IIdentifier, IHasChecksum
     {
         [JsonPropertyName("checksum")]
         [JsonProperty("checksum")]
