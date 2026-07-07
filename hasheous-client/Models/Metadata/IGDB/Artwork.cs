@@ -15,6 +15,10 @@ namespace HasheousClient.Models.Metadata.IGDB
         [JsonProperty("animated")]
         public bool? Animated { get; set; }
 
+        [JsonPropertyName("artwork_type")]
+        [JsonProperty("artwork_type")]
+        public long ArtworkType { get; set; }
+
         [JsonPropertyName("checksum")]
         [JsonProperty("checksum")]
         public string Checksum { get; set; }
