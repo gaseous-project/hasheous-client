@@ -86,6 +86,7 @@ namespace HasheousClient.Models
                 Pleasuredome = 10,
                 MAMERedump = 11,
                 TotalDOSCollection = 12,
+                eXo = 13,
                 ScreenScraper = 98,
                 Generic = 99,
                 Unknown = 100
