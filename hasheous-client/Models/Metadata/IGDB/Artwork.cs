@@ -19,6 +19,10 @@ namespace HasheousClient.Models.Metadata.IGDB
         [JsonProperty("artwork_type")]
         public long ArtworkType { get; set; }
 
+        [JsonPropertyName("image_type")]
+        [JsonProperty("image_type")]
+        public long ImageType { get; set; }
+
         [JsonPropertyName("checksum")]
         [JsonProperty("checksum")]
         public string Checksum { get; set; }
