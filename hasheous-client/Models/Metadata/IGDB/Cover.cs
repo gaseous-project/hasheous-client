@@ -39,6 +39,10 @@ namespace HasheousClient.Models.Metadata.IGDB
     [JsonProperty("image_id")]
     public string ImageId { get; set; }
 
+    [JsonPropertyName("image_type")]
+    [JsonProperty("image_type")]
+    public long ImageType { get; set; }
+
     [JsonPropertyName("url")]
     [JsonProperty("url")]
     public string Url { get; set; }
