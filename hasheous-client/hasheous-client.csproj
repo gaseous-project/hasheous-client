@@ -33,11 +33,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="gaseous-signature-parser" Version="2.7.5" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.401" PrivateAssets="all" />
+    <PackageReference Include="gaseous-signature-parser" Version="2.7.6" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.402" PrivateAssets="all" />
     <PackageReference Include="gaseous.IGDB" Version="1.0.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="System.Text.Json" Version="10.0.12" />
+    <PackageReference Include="System.Text.Json" Version="10.0.13" />
   </ItemGroup>
 
 </Project>
