@@ -1,3 +1,7 @@
 {
-    "dotnet.defaultSolution": "Hasheous.sln"
+    "dotnet.defaultSolution": "Hasheous.sln",
+    "sonarlint.connectedMode.project": {
+        "connectionId": "gaseous-project",
+        "projectKey": "gaseous-project_hasheous-client"
+    }
 }
